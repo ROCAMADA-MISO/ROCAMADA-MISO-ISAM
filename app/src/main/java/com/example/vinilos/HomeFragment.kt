@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.vinilos.databinding.FragmentTitleBinding
+import com.example.vinilos.databinding.FragmentHomeBinding
 
 
 /**
@@ -14,7 +14,7 @@ import com.example.vinilos.databinding.FragmentTitleBinding
  * Use the [TitleFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TitleFragment : Fragment() {
+class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -23,7 +23,7 @@ class TitleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_title,container,false)
+        val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home,container,false)
         return binding.root
     }
 
