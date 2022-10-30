@@ -55,7 +55,7 @@ tools:context="com.example.vinilos.navigation.HomeFragment">
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/android_trivia" />
+        app:srcCompat="@drawable/vinilos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
