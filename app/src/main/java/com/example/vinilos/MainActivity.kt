@@ -8,19 +8,23 @@ import android.widget.TextView
 import android.widget.Toast
 import java.util.*
 import kotlin.time.measureTimedValue
+import androidx.databinding.DataBindingUtil
+import com.example.vinilos.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var diceImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val rollButton: Button = findViewById(R.id.create_award)
-        rollButton.setOnClickListener {
-//            Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
-            rollDice()
-        }
-        diceImage = findViewById(R.id.dice_image)
+//        setContentView(R.layout.activity_main)
+//        val rollButton: Button = findViewById(R.id.create_award)
+//        rollButton.setOnClickListener {
+////            Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
+//            rollDice()
+//        }
+//        diceImage = findViewById(R.id.dice_image)
+
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
 
     private fun rollDice() {
