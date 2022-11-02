@@ -35,103 +35,85 @@
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/ll_main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="25dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="#A4A4A4"
+                    android:padding="10dp"
+                    android:text="Crear premio"/>
 
-            <ImageView
-                android:id="@+id/questionImage"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/image_header_height"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/questionText"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:srcCompat="@drawable/vinilos" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="#A4A4A4"
+                    android:paddingTop="10dp"
+                    android:text="Organización"/>
+                <EditText
+                    android:id="@+id/awardOrganizationEditText"
+                    android:hint="Organización"
+                    android:textColorHint="@color/colorPrimaryVariant"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/questionText"
-                android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="#A4A4A4"
+                    android:paddingTop="10dp"
+                    android:text="Nombre"/>
+                <EditText
+                    android:id="@+id/awardNameEditText"
+                    android:hint="Nombre"
+                    android:textColorHint="@color/colorPrimaryVariant"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="#A4A4A4"
+                    android:paddingTop="10dp"
+                    android:text="Descripción"/>
+                <EditText
+                    android:id="@+id/awardDescriptionEditText"
+                    android:hint="Descripción"
+                    android:textColorHint="@color/colorPrimaryVariant"
+                    android:textAlignment="center"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/question_horizontal_margin"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:fontFamily="sans-serif"
-                android:text="@{game.currentQuestion.text}"
-                android:textSize="@dimen/question_text_size"
-                android:textStyle="bold"
-                android:typeface="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionImage"
-                tools:text="What color is the Android mascot?" />
-
-            <RadioGroup
-                android:id="@+id/questionRadioGroup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/question_horizontal_margin"
-                android:animateLayoutChanges="true"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionText">
-
-                <RadioButton
-                    android:id="@+id/firstAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:checked="true"
-                    android:text="@{game.answers[0]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Blue" />
-
-                <RadioButton
-                    android:id="@+id/secondAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[1]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Green" />
-
-                <RadioButton
-                    android:id="@+id/thirdAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[2]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Yellow" />
-
-                <RadioButton
-                    android:id="@+id/fourthAnswerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{game.answers[3]}"
-                    android:textSize="@dimen/answer_text_size"
-                    tools:text="Red" />
-            </RadioGroup>
-
+                android:gravity="center"
+                android:padding="25dp"
+                android:orientation="horizontal">
             <Button
                 android:id="@+id/submitButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:text="@string/create_award"
                 android:textSize="@dimen/button_text_size"
+                android:padding="25dp"
+                android:background="@drawable/button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionRadioGroup" />
+                app:layout_constraintTop_toBottomOf="@+id/awardOrganizationEditText" />
+            </LinearLayout>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

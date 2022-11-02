@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Vinilos</string>
     <string name="create_award">Crear premio</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="about">Acerca de</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_android_trivia_question">Android Trivia (%1$d/%2$d)</string>
     <string name="about_text">Somos el grupo 6 de la asignatura Ingeniería de software para aplicaciones móviles</string>
