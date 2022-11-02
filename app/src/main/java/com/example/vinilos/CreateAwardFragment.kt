@@ -17,9 +17,11 @@
 package com.example.vinilos
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -63,7 +65,7 @@ class CreateAwardFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
+        Log.d("TAG", "message")
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentCreateAwardBinding>(
                 inflater, R.layout.fragment_create_award, container, false)
@@ -75,33 +77,24 @@ class CreateAwardFragment : Fragment() {
         binding.game = this
 
         // Set the onClickListener for the submitButton
+
+//        binding.submitButton.setOnClickListener {
+//            val awardOrganization = binding.awardOrganizationEditText.text;
+//            val password = binding.awardNameEditText.text;
+////            Toast.makeText(this@CreateAwardFragment, awardOrganization, Toast.LENGTH_LONG).show()
+//            println(awardOrganization)
+//            // your code to validate the user_name and password combination
+//            // and verify the same
+//
+//        }
         binding.submitButton.setOnClickListener @Suppress("UNUSED_ANONYMOUS_PARAMETER")
         { view: View ->
-            val checkedId = binding.questionRadioGroup.checkedRadioButtonId
-            // Do nothing if nothing is checked (id == -1)
-            if (-1 != checkedId) {
-                var answerIndex = 0
-                when (checkedId) {
-                    R.id.secondAnswerRadioButton -> answerIndex = 1
-                    R.id.thirdAnswerRadioButton -> answerIndex = 2
-                    R.id.fourthAnswerRadioButton -> answerIndex = 3
-                }
-                // The first answer in the original question is always the correct one, so if our
-                // answer matches, we have the correct answer.
-                if (answers[answerIndex] == currentQuestion.answers[0]) {
-                    questionIndex++
-                    // Advance to the next question
-                    if (questionIndex < numQuestions) {
-                        currentQuestion = questions[questionIndex]
-                        setQuestion()
-                        binding.invalidateAll()
-                    } else {
-                        // We've won!  Navigate to the gameWonFragment.
-                    }
-                } else {
-                    // Game over! A wrong answer sends us to the gameOverFragment.
-                }
-            }
+            val awardOrganization = binding.awardOrganizationEditText.text
+            val awardNameEdit = binding.awardNameEditText.text
+            val awardDescriptionEdit = binding.awardDescriptionEditText.text
+            Log.d("awardOrganization", awardOrganization.toString())
+            Log.d("awardNameEdit", awardNameEdit.toString())
+            Log.d("awardDescriptionEdit", awardDescriptionEdit.toString())
         }
         return binding.root
     }
