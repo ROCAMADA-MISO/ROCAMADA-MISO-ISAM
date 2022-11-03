@@ -43,11 +43,11 @@ class OverviewViewModel : ViewModel() {
 
     // Internally, we use a MutableLiveData, because we will be updating the List of MarsProperty
     // with new values
-    private val _properties = MutableLiveData<List<MarsProperty>>()
+    private val _artists = MutableLiveData<List<MarsProperty>>()
 
     // The external LiveData interface to the property is immutable, so only this class can modify
-    val properties: LiveData<List<MarsProperty>>
-        get() = _properties
+    val artists: LiveData<List<MarsProperty>>
+        get() = _artists
 
     // Internally, we use a MutableLiveData to handle navigation to the selected property
     private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
@@ -75,11 +75,11 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
-                _properties.value = MusiciansApi.musiciansService.getMusicians()
+                _artists.value = MusiciansApi.musiciansService.getMusicians()
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR
-                _properties.value = ArrayList()
+                _artists.value = ArrayList()
             }
         }
     }
