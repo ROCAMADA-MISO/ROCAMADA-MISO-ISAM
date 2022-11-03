@@ -29,17 +29,17 @@ import com.example.vinilos.artists.network.Artist
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-enum class MarsApiStatus { LOADING, ERROR, DONE }
+enum class ArtistApiStatus { LOADING, ERROR, DONE }
 /**
  * The [ViewModel] that is attached to the [OverviewFragment].
  */
 class OverviewViewModel : ViewModel() {
 
     // The internal MutableLiveData that stores the status of the most recent request
-    private val _status = MutableLiveData<MarsApiStatus>()
+    private val _status = MutableLiveData<ArtistApiStatus>()
 
     // The external immutable LiveData for the request status
-    val status: LiveData<MarsApiStatus>
+    val status: LiveData<ArtistApiStatus>
         get() = _status
 
     // Internally, we use a MutableLiveData, because we will be updating the List of Artist
@@ -68,20 +68,20 @@ class OverviewViewModel : ViewModel() {
 
     /**
      * Gets filtered Mars real estate artist information from the Mars API Retrofit service and
-     * updates the [Artist] [List] and [MarsApiStatus] [LiveData]. The Retrofit service
+     * updates the [Artist] [List] and [ArtistApiStatus] [LiveData]. The Retrofit service
      * returns a coroutine Deferred, which we await to get the result of the transaction.
      * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
      */
      private fun getArtists(filter: ArtistsApiFilter) {
         viewModelScope.launch {
-            _status.value = MarsApiStatus.LOADING
+            _status.value = ArtistApiStatus.LOADING
             try {
                 _artists.value = MusiciansApi.musiciansService.getMusicians()
-                Log.e("DAAAAAAAAAAAAAAAAAAAANI", _artists.value.toString());
-                _status.value = MarsApiStatus.DONE
+                Log.i("DONE", _artists.value.toString());
+                _status.value = ArtistApiStatus.DONE
             } catch (e: Exception) {
-                Log.e("EXCEPTIOOOOOOOOOOOOOOON", e.toString());
-                _status.value = MarsApiStatus.ERROR
+                Log.e("EXCEPTION", e.toString());
+                _status.value = ArtistApiStatus.ERROR
                 _artists.value = ArrayList()
             }
         }

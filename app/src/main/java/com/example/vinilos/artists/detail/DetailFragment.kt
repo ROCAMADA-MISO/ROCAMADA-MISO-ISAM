@@ -26,7 +26,7 @@ import com.example.vinilos.databinding.FragmentDetailBinding
 import com.example.vinilos.*
 
 /**
- * This [Fragment] shows the detailed information about a selected piece of Mars real estate.
+ * This [Fragment] shows the detailed information of an Artist.
  * It sets this information in the [DetailViewModel], which it gets as a Parcelable artist
  * through Jetpack Navigation's SafeArgs.
  */

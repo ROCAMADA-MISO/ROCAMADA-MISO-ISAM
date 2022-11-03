@@ -19,13 +19,13 @@ package com.example.vinilos.artists.network
 
 import android.os.Parcelable
 import androidx.lifecycle.LiveData
-import com.example.vinilos.artists.overview.MarsApiStatus
+import com.example.vinilos.artists.overview.ArtistApiStatus
 import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 /**
  * Gets Mars real estate artist information from the Mars API Retrofit service and updates the
- * [Artist] and [MarsApiStatus] [LiveData]. The Retrofit service returns a coroutine
+ * [Artist] and [ArtistApiStatus] [LiveData]. The Retrofit service returns a coroutine
  * Deferred, which we await to get the result of the transaction.
  * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
  */

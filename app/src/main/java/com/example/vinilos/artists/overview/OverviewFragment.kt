@@ -28,7 +28,7 @@ import com.example.vinilos.databinding.FragmentOverviewBinding
 import com.example.vinilos.artists.network.ArtistsApiFilter
 
 /**
- * This fragment shows the the status of the Mars real-estate web services transaction.
+ * This fragment shows the the status of the Artist web services transaction.
  */
 class OverviewFragment : Fragment() {
 
