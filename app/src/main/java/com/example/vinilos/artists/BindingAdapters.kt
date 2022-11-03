@@ -31,7 +31,7 @@ import com.example.vinilos.artists.overview.MarsApiStatus
 import com.example.vinilos.artists.overview.PhotoGridAdapter
 
 /**
- * When there is no Mars property data (data is null), hide the [RecyclerView], otherwise show it.
+ * When there is no Mars artist data (data is null), hide the [RecyclerView], otherwise show it.
  */
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Artist>?) {

@@ -29,15 +29,15 @@ import com.example.vinilos.artists.network.Artist
  *  The [ViewModel] associated with the [DetailFragment], containing information about the selected
  *  [Artist].
  */
-class DetailViewModel(marsProperty: Artist, app: Application) : AndroidViewModel(app) {
-    private val _selectedProperty = MutableLiveData<Artist>()
+class DetailViewModel(artist: Artist, app: Application) : AndroidViewModel(app) {
+    private val _selectedArtist = MutableLiveData<Artist>()
 
     // The external LiveData for the SelectedProperty
-    val selectedProperty: LiveData<Artist>
-        get() = _selectedProperty
+    val selectedArtist: LiveData<Artist>
+        get() = _selectedArtist
 
-    // Initialize the _selectedProperty MutableLiveData
+    // Initialize the _selectedArtist MutableLiveData
     init {
-        _selectedProperty.value = marsProperty
+        _selectedArtist.value = artist
     }
 }

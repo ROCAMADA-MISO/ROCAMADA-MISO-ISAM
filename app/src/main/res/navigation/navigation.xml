@@ -57,7 +57,7 @@
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail">
         <argument
-            android:name="selectedProperty"
+            android:name="selectedArtist"
             app:argType="com.example.vinilos.artists.network.Artist"
             />
     </fragment>

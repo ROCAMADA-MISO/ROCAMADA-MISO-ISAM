@@ -31,15 +31,15 @@ import com.example.vinilos.artists.network.Artist
  * @param onClick a lambda that takes the
  */
 class PhotoGridAdapter( val onClickListener: OnClickListener ) :
-        ListAdapter<Artist, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+        ListAdapter<Artist, PhotoGridAdapter.ArtistViewHolder>(DiffCallback) {
     /**
-     * The MarsPropertyViewHolder constructor takes the binding variable from the associated
+     * The ArtistViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [Artist] information.
      */
-    class MarsPropertyViewHolder(private var binding: GridViewItemBinding):
+    class ArtistViewHolder(private var binding: GridViewItemBinding):
             RecyclerView.ViewHolder(binding.root) {
-        fun bind(marsProperty: Artist) {
-            binding.artist = marsProperty
+        fun bind(artist: Artist) {
+            binding.artist = artist
             // This is important, because it forces the data binding to execute immediately,
             // which allows the RecyclerView to make the correct view size measurements
             binding.executePendingBindings()
@@ -64,19 +64,19 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
      * Create new [RecyclerView] item views (invoked by the layout manager)
      */
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+                                    viewType: Int): ArtistViewHolder {
+        return ArtistViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     /**
      * Replaces the contents of a view (invoked by the layout manager)
      */
-    override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
-        val marsProperty = getItem(position)
+    override fun onBindViewHolder(holder: ArtistViewHolder, position: Int) {
+        val artist = getItem(position)
         holder.itemView.setOnClickListener {
-            onClickListener.onClick(marsProperty)
+            onClickListener.onClick(artist)
         }
-        holder.bind(marsProperty)
+        holder.bind(artist)
     }
 
     /**
@@ -84,7 +84,7 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
      * associated with the current item to the [onClick] function.
      * @param clickListener lambda that will be called with the current [Artist]
      */
-    class OnClickListener(val clickListener: (marsProperty:Artist) -> Unit) {
-        fun onClick(marsProperty:Artist) = clickListener(marsProperty)
+    class OnClickListener(val clickListener: (artist:Artist) -> Unit) {
+        fun onClick(artist:Artist) = clickListener(artist)
     }
 }

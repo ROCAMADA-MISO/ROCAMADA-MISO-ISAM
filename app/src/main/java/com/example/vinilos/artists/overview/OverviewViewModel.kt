@@ -46,16 +46,16 @@ class OverviewViewModel : ViewModel() {
     // with new values
     private val _artists = MutableLiveData<List<Artist>>()
 
-    // The external LiveData interface to the property is immutable, so only this class can modify
+    // The external LiveData interface to the artist is immutable, so only this class can modify
     val artists: LiveData<List<Artist>>
         get() = _artists
 
-    // Internally, we use a MutableLiveData to handle navigation to the selected property
-    private val _navigateToSelectedProperty = MutableLiveData<Artist?>()
+    // Internally, we use a MutableLiveData to handle navigation to the selected artist
+    private val _navigateToSelectedArtist = MutableLiveData<Artist?>()
 
-    // The external immutable LiveData for the navigation property
-    val navigateToSelectedProperty: MutableLiveData<Artist?>
-        get() = _navigateToSelectedProperty
+    // The external immutable LiveData for the navigation artist
+    val navigateToSelectedArtist: MutableLiveData<Artist?>
+        get() = _navigateToSelectedArtist
 
 
 
@@ -67,7 +67,7 @@ class OverviewViewModel : ViewModel() {
     }
 
     /**
-     * Gets filtered Mars real estate property information from the Mars API Retrofit service and
+     * Gets filtered Mars real estate artist information from the Mars API Retrofit service and
      * updates the [Artist] [List] and [MarsApiStatus] [LiveData]. The Retrofit service
      * returns a coroutine Deferred, which we await to get the result of the transaction.
      * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
@@ -91,18 +91,18 @@ class OverviewViewModel : ViewModel() {
      */
 
     /**
-     * When the property is clicked, set the [_navigateToSelectedProperty] [MutableLiveData]
-     * @param marsProperty The [Artist] that was clicked on.
+     * When the artist is clicked, set the [_navigateToSelectedArtist] [MutableLiveData]
+     * @param artist The [Artist] that was clicked on.
      */
-    fun displayPropertyDetails(marsProperty: Artist) {
-        _navigateToSelectedProperty.value = marsProperty
+    fun displayArtistDetails(artist: Artist) {
+        _navigateToSelectedArtist.value = artist
     }
 
     /**
-     * After the navigation has taken place, make sure navigateToSelectedProperty is set to null
+     * After the navigation has taken place, make sure navigateToSelectedArtist is set to null
      */
-    fun displayPropertyDetailsComplete() {
-        _navigateToSelectedProperty.value = null
+    fun displayArtistDetailsComplete() {
+        _navigateToSelectedArtist.value = null
     }
 
     /**

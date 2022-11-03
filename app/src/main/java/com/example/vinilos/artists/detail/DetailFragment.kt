@@ -27,7 +27,7 @@ import com.example.vinilos.*
 
 /**
  * This [Fragment] shows the detailed information about a selected piece of Mars real estate.
- * It sets this information in the [DetailViewModel], which it gets as a Parcelable property
+ * It sets this information in the [DetailViewModel], which it gets as a Parcelable artist
  * through Jetpack Navigation's SafeArgs.
  */
 class DetailFragment : Fragment() {
@@ -36,7 +36,7 @@ class DetailFragment : Fragment() {
         val application = requireNotNull(activity).application
         val binding = FragmentDetailBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        val marsProperty = DetailFragmentArgs.fromBundle(arguments!!).selectedProperty
+        val marsProperty = DetailFragmentArgs.fromBundle(arguments!!).selectedArtist
         val viewModelFactory = DetailViewModelFactory(marsProperty, application)
         binding.viewModel = ViewModelProvider(
                 this, viewModelFactory).get(DetailViewModel::class.java)
