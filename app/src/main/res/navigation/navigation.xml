@@ -24,10 +24,13 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.vinilos.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_createAwardFragment"
             app:destination="@id/createAwardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAwardFragment"
@@ -39,4 +42,8 @@
         android:name="com.example.vinilos.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.vinilos.artists.overview.OverviewFragment"
+        android:label="OverviewFragment" />
 </navigation>

@@ -2,7 +2,17 @@
     <string name="app_name">Vinilos</string>
     <string name="create_award">Crear premio</string>
     <string name="about">Acerca de</string>
+    <string name="show_all">Show all</string>
+    <string name="show_musicians">Mostrar músicos</string>
+    <string name="show_bands">Mostrar bandas</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_android_trivia_question">Android Trivia (%1$d/%2$d)</string>
+    <string name="show_rent">Rent</string>
+    <string name="show_buy">Buy</string>
+    <string name="type_rent">Rent</string>
+    <string name="type_sale">Sale</string>
+    <string name="display_type">For %s</string>
+    <string name="display_price_monthly_rental">$%,.0f/month</string>
+    <string name="display_price">$%,.0f</string>
     <string name="about_text">Somos el grupo 6 de la asignatura Ingeniería de software para aplicaciones móviles</string>
 </resources>

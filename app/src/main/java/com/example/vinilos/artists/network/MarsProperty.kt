@@ -15,23 +15,18 @@
  *
  */
 
-package com.example.vinilos.network
+package com.example.vinilos.artists.network
 
-import android.os.Parcelable
-import androidx.lifecycle.LiveData
-import com.example.vinilos.artist.VinilosApiStatus
 import com.squareup.moshi.Json
 
 /**
- * Gets Mars real estate property information from the Mars API Retrofit service and updates the
- * [MarsProperty] and [MarsApiStatus] [LiveData]. The Retrofit service returns a coroutine
- * Deferred, which we await to get the result of the transaction.
- * @param filter the [MarsApiFilter] that is sent as part of the web server request
+ * This data class defines a Mars property which includes an ID, the image URL, the type (sale
+ * or rental) and the price (monthly if it's a rental).
+ * The property names of this data class are used by Moshi to match the names of values in JSON.
  */
-data class MusicianProperty(
+data class MarsProperty(
         val id: String,
-        val name: String,
-        val description: String,
-        val image: String,
-        val birthDate: String
-)
+        // used to map img_src from the JSON to imgSrcUrl in our class
+        @Json(name = "img_src") val imgSrcUrl: String,
+        val type: String,
+        val price: Double)

@@ -15,7 +15,7 @@
  *
  */
 
-package com.example.vinilos.artist
+package com.example.vinilos.artists.overview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -23,22 +23,21 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.databinding.GridViewItemBinding
-import com.example.vinilos.network.MusicianProperty
+import com.example.vinilos.artists.network.MarsProperty
 
 /**
  * This class implements a [RecyclerView] [ListAdapter] which uses Data Binding to present [List]
  * data, including computing diffs between lists.
- * @param onClick a lambda that takes the
  */
-class PhotoGridAdapter( val onClickListener: OnClickListener ) :
-        ListAdapter<MusicianProperty, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+class PhotoGridAdapter : ListAdapter<MarsProperty, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+
     /**
      * The MarsPropertyViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
      */
     class MarsPropertyViewHolder(private var binding: GridViewItemBinding):
             RecyclerView.ViewHolder(binding.root) {
-        fun bind(marsProperty: MusicianProperty) {
+        fun bind(marsProperty: MarsProperty) {
             binding.property = marsProperty
             // This is important, because it forces the data binding to execute immediately,
             // which allows the RecyclerView to make the correct view size measurements
@@ -50,12 +49,12 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
      * Allows the RecyclerView to determine which items have changed when the [List] of [MarsProperty]
      * has been updated.
      */
-    companion object DiffCallback : DiffUtil.ItemCallback<MusicianProperty>() {
-        override fun areItemsTheSame(oldItem: MusicianProperty, newItem: MusicianProperty): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<MarsProperty>() {
+        override fun areItemsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: MusicianProperty, newItem: MusicianProperty): Boolean {
+        override fun areContentsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
             return oldItem.id == newItem.id
         }
     }
@@ -73,18 +72,6 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
      */
     override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
         val marsProperty = getItem(position)
-        holder.itemView.setOnClickListener {
-            onClickListener.onClick(marsProperty)
-        }
         holder.bind(marsProperty)
-    }
-
-    /**
-     * Custom listener that handles clicks on [RecyclerView] items.  Passes the [MarsProperty]
-     * associated with the current item to the [onClick] function.
-     * @param clickListener lambda that will be called with the current [MarsProperty]
-     */
-    class OnClickListener(val clickListener: (marsProperty:MusicianProperty) -> Unit) {
-        fun onClick(marsProperty:MusicianProperty) = clickListener(marsProperty)
     }
 }

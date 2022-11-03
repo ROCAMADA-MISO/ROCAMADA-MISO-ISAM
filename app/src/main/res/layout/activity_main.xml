@@ -17,7 +17,6 @@
             app:defaultNavHost = "true"
             app:navGraph="@navigation/navigation"/>
 
-
     <!--    <ImageView-->
     <!--        android:id="@+id/dice_image"-->
     <!--        android:layout_width="wrap_content"-->

@@ -15,22 +15,19 @@
  *
  */
 
-package com.example.vinilos.artist
+package com.example.vinilos.artists.overview
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.vinilos.R
-import com.example.vinilos.databinding.FragmentArtistBinding
-import com.example.vinilos.network.VinilosApiFilter
+import com.example.vinilos.databinding.FragmentOverviewBinding
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
  */
-class AstistFragment : Fragment() {
+class OverviewFragment : Fragment() {
 
     /**
      * Lazily initialize our [OverviewViewModel].
@@ -45,7 +42,7 @@ class AstistFragment : Fragment() {
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = FragmentArtistBinding.inflate(inflater)
+        val binding = FragmentOverviewBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
@@ -53,23 +50,8 @@ class AstistFragment : Fragment() {
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
 
-        // Sets the adapter of the photosGrid RecyclerView with clickHandler lambda that
-        // tells the viewModel when our property is clicked
-        binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener {
-            viewModel.displayPropertyDetails(it)
-        })
-
-        // Observe the navigateToSelectedProperty LiveData and Navigate when it isn't null
-        // After navigating, call displayPropertyDetailsComplete() so that the ViewModel is ready
-        // for another navigation event.
-        viewModel.navigateToSelectedProperty.observe(this, Observer {
-            if ( null != it ) {
-                // Must find the NavController from the Fragment
-                this.findNavController().navigate(ArtistFragmentDirections.actionShowDetail(it))
-                // Tell the ViewModel we've made the navigate call to prevent multiple navigation
-                viewModel.displayPropertyDetailsComplete()
-            }
-        })
+        // Sets the adapter of the photosGrid RecyclerView
+        binding.photosGrid.adapter = PhotoGridAdapter()
 
         setHasOptionsMenu(true)
         return binding.root
@@ -81,20 +63,5 @@ class AstistFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.overflow_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    /**
-     * Updates the filter in the [OverviewViewModel] when the menu items are selected from the
-     * overflow menu.
-     */
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        viewModel.updateFilter(
-                when (item.itemId) {
-                    R.id.show_rent_menu -> VinilosApiFilter.SHOW_RENT
-                    R.id.show_buy_menu -> VinilosApiFilter.SHOW_BUY
-                    else -> VinilosApiFilter.SHOW_ALL
-                }
-        )
-        return true
     }
 }

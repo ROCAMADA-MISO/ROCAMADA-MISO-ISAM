@@ -26,6 +26,8 @@ class HomeFragment : Fragment() {
     ): View? {
         val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home,container,false)
         binding.createAwardButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_createAwardFragment))
+        binding.artistListButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_overviewFragment))
+
         setHasOptionsMenu(true)
         return binding.root
     }
