@@ -78,5 +78,5 @@ object MusiciansApi {
     val musiciansService : MusiciansApiService by lazy { retrofit.create(MusiciansApiService::class.java) }
 }
 object BandsApi {
-    val musiciansService : MusiciansApiService by lazy { retrofit.create(MusiciansApiService::class.java) }
+    val bandsService : BandsApiService by lazy { retrofit.create(BandsApiService::class.java) }
 }

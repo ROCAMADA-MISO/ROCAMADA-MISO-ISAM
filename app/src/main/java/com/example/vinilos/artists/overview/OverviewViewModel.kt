@@ -17,16 +17,17 @@
 
 package com.example.vinilos.artists.overview
 
+//import kotlinx.coroutines.CoroutineScope
+//import kotlinx.coroutines.Dispatchers
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.vinilos.artists.network.MusiciansApi
-import com.example.vinilos.artists.network.ArtistsApiFilter
-import com.example.vinilos.artists.network.Artist
-//import kotlinx.coroutines.CoroutineScope
-//import kotlinx.coroutines.Dispatchers
 import androidx.lifecycle.viewModelScope
+import com.example.vinilos.artists.network.Artist
+import com.example.vinilos.artists.network.ArtistsApiFilter
+import com.example.vinilos.artists.network.BandsApi
+import com.example.vinilos.artists.network.MusiciansApi
 import kotlinx.coroutines.launch
 
 enum class ArtistApiStatus { LOADING, ERROR, DONE }
@@ -45,6 +46,7 @@ class OverviewViewModel : ViewModel() {
     // Internally, we use a MutableLiveData, because we will be updating the List of Artist
     // with new values
     private val _artists = MutableLiveData<List<Artist>>()
+
 
     // The external LiveData interface to the artist is immutable, so only this class can modify
     val artists: LiveData<List<Artist>>
@@ -66,6 +68,7 @@ class OverviewViewModel : ViewModel() {
         getArtists(ArtistsApiFilter.SHOW_ALL)
     }
 
+
     /**
      * Gets filtered Mars real estate artist information from the Mars API Retrofit service and
      * updates the [Artist] [List] and [ArtistApiStatus] [LiveData]. The Retrofit service
@@ -75,8 +78,17 @@ class OverviewViewModel : ViewModel() {
      private fun getArtists(filter: ArtistsApiFilter) {
         viewModelScope.launch {
             _status.value = ArtistApiStatus.LOADING
+
             try {
-                _artists.value = MusiciansApi.musiciansService.getMusicians()
+                if(filter.name.toString() == "SHOW_MUSICIANS"){
+                    _artists.value = MusiciansApi.musiciansService.getMusicians()
+                }else if (filter.name.toString() == "SHOW_BANDS"){
+                    _artists.value = BandsApi.bandsService.getBands()
+                }else{
+                    val musicians =  MusiciansApi.musiciansService.getMusicians()
+                    val bands = BandsApi.bandsService.getBands()
+                    _artists.value = musicians + bands;
+                }
                 Log.i("DONE", _artists.value.toString());
                 _status.value = ArtistApiStatus.DONE
             } catch (e: Exception) {
