@@ -25,21 +25,21 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home,container,false)
-        binding.createAwardButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_createAwardFragment))
+//        binding.createAwardButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_createAwardFragment))
         binding.artistListButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_overviewFragment))
 
-        setHasOptionsMenu(true)
+//        setHasOptionsMenu(true)
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.overflow_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController()) ||
-        super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//        inflater?.inflate(R.menu.overflow_menu, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController()) ||
+//        super.onOptionsItemSelected(item)
+//    }
 
 }

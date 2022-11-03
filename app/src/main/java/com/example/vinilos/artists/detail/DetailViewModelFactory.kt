@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.artists.network.MarsProperty
 
+
 /**
  * Simple ViewModel factory that provides the MarsProperty and context to the ViewModel.
  */
