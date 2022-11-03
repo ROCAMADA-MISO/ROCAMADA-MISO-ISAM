@@ -20,7 +20,7 @@ package com.example.vinilos.artists.overview
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.vinilos.artists.network.MarsApi
+import com.example.vinilos.artists.network.MusiciansApi
 import com.example.vinilos.artists.network.MarsApiFilter
 import com.example.vinilos.artists.network.MarsProperty
 //import kotlinx.coroutines.CoroutineScope
@@ -75,7 +75,7 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
-                _properties.value = MarsApi.retrofitService.getProperties(filter.value)
+                _properties.value = MusiciansApi.musiciansService.getMusicians()
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR

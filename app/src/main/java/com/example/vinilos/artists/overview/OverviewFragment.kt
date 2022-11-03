@@ -26,8 +26,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.vinilos.R
 import com.example.vinilos.databinding.FragmentOverviewBinding
 import com.example.vinilos.artists.network.MarsApiFilter
-import com.example.vinilos.artists.*
-import com.example.vinilos.artists.detail.*
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
@@ -81,7 +79,7 @@ class OverviewFragment : Fragment() {
      * Inflates the overflow menu that contains filtering options.
      */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.overflow_menu, menu)
+        inflater.inflate(R.menu.artist_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

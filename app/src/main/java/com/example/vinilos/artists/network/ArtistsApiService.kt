@@ -26,7 +26,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private const val BASE_URL = "https://mars.udacity.com/"
+private const val BASE_URL = "https://back-vinilos-g6.herokuapp.com/"
 enum class MarsApiFilter(val value: String) { SHOW_RENT("rent"), SHOW_BUY("buy"), SHOW_ALL("all") }
 
 /**
@@ -49,19 +49,35 @@ private val retrofit = Retrofit.Builder()
 /**
  * A public interface that exposes the [getProperties] method
  */
-interface MarsApiService {
+interface MusiciansApiService {
     /**
      * Returns a Coroutine [List] of [MarsProperty] which can be fetched with await() if in a Coroutine scope.
-     * The @GET annotation indicates that the "realestate" endpoint will be requested with the GET
+     * The @GET annotation indicates that the "musicians" endpoint will be requested with the GET
      * HTTP method
      */
-    @GET("realestate")
-    suspend fun getProperties(@Query("filter") type: String): List<MarsProperty>
+    @GET("musicians")
+    suspend fun getMusicians(): List<MarsProperty>
+}
+
+/**
+ * A public interface that exposes the [getProperties] method
+ */
+interface BandsApiService {
+    /**
+     * Returns a Coroutine [List] of [MarsProperty] which can be fetched with await() if in a Coroutine scope.
+     * The @GET annotation indicates that the "musicians" endpoint will be requested with the GET
+     * HTTP method
+     */
+    @GET("bands")
+    suspend fun getBands(): List<MarsProperty>
 }
 
 /**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
-object MarsApi {
-    val retrofitService : MarsApiService by lazy { retrofit.create(MarsApiService::class.java) }
+object MusiciansApi {
+    val musiciansService : MusiciansApiService by lazy { retrofit.create(MusiciansApiService::class.java) }
+}
+object BandsApi {
+    val musiciansService : MusiciansApiService by lazy { retrofit.create(MusiciansApiService::class.java) }
 }
