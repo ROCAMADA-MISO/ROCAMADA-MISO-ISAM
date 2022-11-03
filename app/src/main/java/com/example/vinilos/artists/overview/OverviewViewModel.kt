@@ -22,7 +22,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.vinilos.artists.network.MusiciansApi
 import com.example.vinilos.artists.network.ArtistsApiFilter
-import com.example.vinilos.artists.network.MarsProperty
+import com.example.vinilos.artists.network.Artist
 //import kotlinx.coroutines.CoroutineScope
 //import kotlinx.coroutines.Dispatchers
 import androidx.lifecycle.viewModelScope
@@ -41,19 +41,19 @@ class OverviewViewModel : ViewModel() {
     val status: LiveData<MarsApiStatus>
         get() = _status
 
-    // Internally, we use a MutableLiveData, because we will be updating the List of MarsProperty
+    // Internally, we use a MutableLiveData, because we will be updating the List of Artist
     // with new values
-    private val _artists = MutableLiveData<List<MarsProperty>>()
+    private val _artists = MutableLiveData<List<Artist>>()
 
     // The external LiveData interface to the property is immutable, so only this class can modify
-    val artists: LiveData<List<MarsProperty>>
+    val artists: LiveData<List<Artist>>
         get() = _artists
 
     // Internally, we use a MutableLiveData to handle navigation to the selected property
-    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
+    private val _navigateToSelectedProperty = MutableLiveData<Artist>()
 
     // The external immutable LiveData for the navigation property
-    val navigateToSelectedProperty: LiveData<MarsProperty>
+    val navigateToSelectedProperty: LiveData<Artist>
         get() = _navigateToSelectedProperty
 
 
@@ -67,7 +67,7 @@ class OverviewViewModel : ViewModel() {
 
     /**
      * Gets filtered Mars real estate property information from the Mars API Retrofit service and
-     * updates the [MarsProperty] [List] and [MarsApiStatus] [LiveData]. The Retrofit service
+     * updates the [Artist] [List] and [MarsApiStatus] [LiveData]. The Retrofit service
      * returns a coroutine Deferred, which we await to get the result of the transaction.
      * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
      */
@@ -89,9 +89,9 @@ class OverviewViewModel : ViewModel() {
 
     /**
      * When the property is clicked, set the [_navigateToSelectedProperty] [MutableLiveData]
-     * @param marsProperty The [MarsProperty] that was clicked on.
+     * @param marsProperty The [Artist] that was clicked on.
      */
-    fun displayPropertyDetails(marsProperty: MarsProperty) {
+    fun displayPropertyDetails(marsProperty: Artist) {
         _navigateToSelectedProperty.value = marsProperty
     }
 

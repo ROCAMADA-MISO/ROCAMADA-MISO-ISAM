@@ -50,12 +50,12 @@ private val retrofit = Retrofit.Builder()
  */
 interface MusiciansApiService {
     /**
-     * Returns a Coroutine [List] of [MarsProperty] which can be fetched with await() if in a Coroutine scope.
+     * Returns a Coroutine [List] of [Artist] which can be fetched with await() if in a Coroutine scope.
      * The @GET annotation indicates that the "musicians" endpoint will be requested with the GET
      * HTTP method
      */
     @GET("musicians")
-    suspend fun getMusicians(): List<MarsProperty>
+    suspend fun getMusicians(): List<Artist>
 }
 
 /**
@@ -63,12 +63,12 @@ interface MusiciansApiService {
  */
 interface BandsApiService {
     /**
-     * Returns a Coroutine [List] of [MarsProperty] which can be fetched with await() if in a Coroutine scope.
+     * Returns a Coroutine [List] of [Artist] which can be fetched with await() if in a Coroutine scope.
      * The @GET annotation indicates that the "musicians" endpoint will be requested with the GET
      * HTTP method
      */
     @GET("bands")
-    suspend fun getBands(): List<MarsProperty>
+    suspend fun getBands(): List<Artist>
 }
 
 /**

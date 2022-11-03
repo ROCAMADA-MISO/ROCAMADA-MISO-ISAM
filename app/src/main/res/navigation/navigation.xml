@@ -58,7 +58,7 @@
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="selectedProperty"
-            app:argType="com.example.vinilos.artists.network.MarsProperty"
+            app:argType="com.example.vinilos.artists.network.Artist"
             />
     </fragment>
 </navigation>

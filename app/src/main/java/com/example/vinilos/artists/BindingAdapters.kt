@@ -26,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
-import com.example.vinilos.artists.network.MarsProperty
+import com.example.vinilos.artists.network.Artist
 import com.example.vinilos.artists.overview.MarsApiStatus
 import com.example.vinilos.artists.overview.PhotoGridAdapter
 
@@ -34,7 +34,7 @@ import com.example.vinilos.artists.overview.PhotoGridAdapter
  * When there is no Mars property data (data is null), hide the [RecyclerView], otherwise show it.
  */
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<Artist>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
     adapter.submitList(data)
 }

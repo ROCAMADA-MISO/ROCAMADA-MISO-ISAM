@@ -22,8 +22,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="property"
-            type="com.example.vinilos.artists.network.MarsProperty" />
+            name="artist"
+            type="com.example.vinilos.artists.network.Artist" />
     </data>
     <ImageView
         android:id="@+id/mars_image"
@@ -32,6 +32,6 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:padding="2dp"
-        app:imageUrl="@{property.imgSrcUrl}"
+        app:imageUrl="@{artist.imgSrcUrl}"
         tools:src="@tools:sample/backgrounds/scenic"/>
 </layout>

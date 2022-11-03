@@ -25,17 +25,20 @@ import kotlinx.android.parcel.Parcelize
 
 /**
  * Gets Mars real estate property information from the Mars API Retrofit service and updates the
- * [MarsProperty] and [MarsApiStatus] [LiveData]. The Retrofit service returns a coroutine
+ * [Artist] and [MarsApiStatus] [LiveData]. The Retrofit service returns a coroutine
  * Deferred, which we await to get the result of the transaction.
  * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
  */
 @Parcelize
-data class MarsProperty(
+data class Artist(
         val id: String,
+        val name: String,
         // used to map img_src from the JSON to imgSrcUrl in our class
-        @Json(name = "img_src") val imgSrcUrl: String,
-        val type: String,
+        @Json(name = "image") val imgSrcUrl: String,
+        val creationDate: String,
+        val birthDate: String,
         val price: Double) : Parcelable {
-    val isRental
-        get() = type == "rent"
+    //TODO: Replace or use inheritance
+    val isMusician
+        get() = true;
 }
