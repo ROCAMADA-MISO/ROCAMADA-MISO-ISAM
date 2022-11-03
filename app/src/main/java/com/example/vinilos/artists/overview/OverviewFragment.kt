@@ -25,7 +25,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.vinilos.R
 import com.example.vinilos.databinding.FragmentOverviewBinding
-import com.example.vinilos.artists.network.MarsApiFilter
+import com.example.vinilos.artists.network.ArtistsApiFilter
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
@@ -90,9 +90,9 @@ class OverviewFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         viewModel.updateFilter(
                 when (item.itemId) {
-                    R.id.show_musicians_menu -> MarsApiFilter.SHOW_RENT
-                    R.id.show_bands_menu -> MarsApiFilter.SHOW_BUY
-                    else -> MarsApiFilter.SHOW_ALL
+                    R.id.show_musicians_menu -> ArtistsApiFilter.SHOW_MUSICIANS
+                    R.id.show_bands_menu -> ArtistsApiFilter.SHOW_BANDS
+                    else -> ArtistsApiFilter.SHOW_ALL
                 }
         )
         return true

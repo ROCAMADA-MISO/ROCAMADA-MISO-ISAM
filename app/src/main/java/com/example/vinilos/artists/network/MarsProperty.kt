@@ -27,7 +27,7 @@ import kotlinx.android.parcel.Parcelize
  * Gets Mars real estate property information from the Mars API Retrofit service and updates the
  * [MarsProperty] and [MarsApiStatus] [LiveData]. The Retrofit service returns a coroutine
  * Deferred, which we await to get the result of the transaction.
- * @param filter the [MarsApiFilter] that is sent as part of the web server request
+ * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
  */
 @Parcelize
 data class MarsProperty(

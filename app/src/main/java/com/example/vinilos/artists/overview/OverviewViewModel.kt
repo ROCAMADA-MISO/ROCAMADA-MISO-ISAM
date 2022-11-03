@@ -21,7 +21,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.vinilos.artists.network.MusiciansApi
-import com.example.vinilos.artists.network.MarsApiFilter
+import com.example.vinilos.artists.network.ArtistsApiFilter
 import com.example.vinilos.artists.network.MarsProperty
 //import kotlinx.coroutines.CoroutineScope
 //import kotlinx.coroutines.Dispatchers
@@ -59,19 +59,19 @@ class OverviewViewModel : ViewModel() {
 
 
     /**
-     * Call getMarsRealEstateProperties() on init so we can display status immediately.
+     * Call getArtists() on init so we can display status immediately.
      */
     init {
-        getMarsRealEstateProperties(MarsApiFilter.SHOW_ALL)
+        getArtists(ArtistsApiFilter.SHOW_ALL)
     }
 
     /**
      * Gets filtered Mars real estate property information from the Mars API Retrofit service and
      * updates the [MarsProperty] [List] and [MarsApiStatus] [LiveData]. The Retrofit service
      * returns a coroutine Deferred, which we await to get the result of the transaction.
-     * @param filter the [MarsApiFilter] that is sent as part of the web server request
+     * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
      */
-     private fun getMarsRealEstateProperties(filter: MarsApiFilter) {
+     private fun getArtists(filter: ArtistsApiFilter) {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
@@ -104,10 +104,10 @@ class OverviewViewModel : ViewModel() {
 
     /**
      * Updates the data set filter for the web services by querying the data with the new filter
-     * by calling [getMarsRealEstateProperties]
-     * @param filter the [MarsApiFilter] that is sent as part of the web server request
+     * by calling [getArtists]
+     * @param filter the [ArtistsApiFilter] that is sent as part of the web server request
      */
-    fun updateFilter(filter: MarsApiFilter) {
-        getMarsRealEstateProperties(filter)
+    fun updateFilter(filter: ArtistsApiFilter) {
+        getArtists(filter)
     }
 }
