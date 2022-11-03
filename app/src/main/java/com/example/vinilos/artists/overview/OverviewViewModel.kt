@@ -17,6 +17,7 @@
 
 package com.example.vinilos.artists.overview
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -50,10 +51,10 @@ class OverviewViewModel : ViewModel() {
         get() = _artists
 
     // Internally, we use a MutableLiveData to handle navigation to the selected property
-    private val _navigateToSelectedProperty = MutableLiveData<Artist>()
+    private val _navigateToSelectedProperty = MutableLiveData<Artist?>()
 
     // The external immutable LiveData for the navigation property
-    val navigateToSelectedProperty: LiveData<Artist>
+    val navigateToSelectedProperty: MutableLiveData<Artist?>
         get() = _navigateToSelectedProperty
 
 
@@ -76,8 +77,10 @@ class OverviewViewModel : ViewModel() {
             _status.value = MarsApiStatus.LOADING
             try {
                 _artists.value = MusiciansApi.musiciansService.getMusicians()
+                Log.e("DAAAAAAAAAAAAAAAAAAAANI", _artists.value.toString());
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
+                Log.e("EXCEPTIOOOOOOOOOOOOOOON", e.toString());
                 _status.value = MarsApiStatus.ERROR
                 _artists.value = ArrayList()
             }

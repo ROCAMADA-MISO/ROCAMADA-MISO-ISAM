@@ -35,9 +35,7 @@ data class Artist(
         val name: String,
         // used to map img_src from the JSON to imgSrcUrl in our class
         @Json(name = "image") val imgSrcUrl: String,
-        val creationDate: String,
-        val birthDate: String,
-        val price: Double) : Parcelable {
+        ) : Parcelable {
     //TODO: Replace or use inheritance
     val isMusician
         get() = true;
