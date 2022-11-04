@@ -32,6 +32,12 @@
         android:layout_height="match_parent"
         tools:context="com.example.android.marsrealestate.MainActivity">
 
+        <TextView
+            android:id="@+id/artistTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Artistas"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photos_grid"
             android:layout_width="0dp"
@@ -57,6 +63,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:marsApiStatus="@{viewModel.status}" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
