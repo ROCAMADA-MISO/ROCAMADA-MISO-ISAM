@@ -40,15 +40,11 @@ android {
 }
 
 dependencies {
-
     // Core with Ktx
     implementation 'androidx.core:core-ktx:1.7.0'
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Java language implementation
     implementation("androidx.navigation:navigation-fragment:2.5.3")
@@ -111,4 +107,30 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:2.5.3")
+
+    debugImplementation 'androidx.test:core:1.4.0'
+    testImplementation 'androidx.test:core:1.4.0'
+    androidTestImplementation 'androidx.test:core:1.4.0'
+
+    testImplementation "junit:junit:4.13.2"
+    testImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+
+
+    testImplementation "org.robolectric:robolectric:4.9"
+
+    testImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestUtil 'androidx.test:orchestrator:1.1.0'
+
+    testImplementation "com.google.truth:truth:1.1.3"
+    androidTestImplementation 'com.google.truth:truth:1.1.3'
+    testAnnotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.5.3'
+
+    androidTestImplementation 'org.robolectric:annotations:3.5.1'
+
 }
