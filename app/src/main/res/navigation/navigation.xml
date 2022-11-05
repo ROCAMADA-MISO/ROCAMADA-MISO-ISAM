@@ -19,12 +19,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/prizesOverviewFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.vinilos.HomeFragment"
-        android:label="HomeFragment">
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_overviewFragment"
             app:destination="@id/overviewFragment" />
@@ -58,5 +59,6 @@
     <fragment
         android:id="@+id/prizesOverviewFragment"
         android:name="com.example.vinilos.prizes.overview.PrizesOverviewFragment"
-        android:label="PrizesOverviewFragment" />
+        android:label="PrizesOverviewFragment"
+        tools:layout="@layout/fragment_create_award"/>
 </navigation>

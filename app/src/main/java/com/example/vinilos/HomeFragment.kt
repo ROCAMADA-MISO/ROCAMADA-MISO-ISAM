@@ -2,12 +2,14 @@ package com.example.vinilos
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.vinilos.databinding.FragmentHomeBinding
+import androidx.appcompat.app.AppCompatActivity
 
 
 /**
@@ -24,9 +26,12 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home,container,false)
 //        binding.createAwardButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_createAwardFragment))
         binding.artistListButton.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_overviewFragment))
+        binding.createPrize.setOnClickListener (Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_prizesOverviewFragment))
+
 
 //        setHasOptionsMenu(true)
         return binding.root

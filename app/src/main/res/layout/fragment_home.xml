@@ -27,22 +27,62 @@ tools:context="com.example.vinilos.navigation.HomeFragment">
     android:layout_height="match_parent">
 
 
+
+
     <Button
         android:id="@+id/artistListButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/horizontal_margin"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:paddingStart="@dimen/button_padding"
-        android:paddingEnd="@dimen/button_padding"
+        android:layout_marginBottom="384dp"
         android:text="Lista de artistas"
         android:textColor="@color/white"
         android:textSize="@dimen/button_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleImage" />
+        app:layout_constraintTop_toBottomOf="@+id/titleImage"/>
+
+    <Button
+        android:id="@+id/createPrize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginBottom="180dp"
+        android:paddingStart="@dimen/button_padding"
+        android:paddingEnd="@dimen/button_padding"
+        android:text="Crear Premios"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleImage"/>
+
+    <Button
+        android:id="@+id/albumListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginBottom="288dp"
+        android:paddingStart="@dimen/button_padding"
+        android:paddingEnd="@dimen/button_padding"
+        android:text="Lista de albumes"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleImage"/>
+
+
 
     <ImageView
         android:id="@+id/titleImage"
@@ -57,7 +97,8 @@ tools:context="com.example.vinilos.navigation.HomeFragment">
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vinilos" />
 
-<!--    <Button-->
+
+    <!--    <Button-->
 <!--        android:id="@+id/createAwardButton"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
