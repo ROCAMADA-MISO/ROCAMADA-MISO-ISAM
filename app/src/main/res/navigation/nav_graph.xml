@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/musicianFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/prizeFragment"
@@ -24,4 +24,23 @@
         android:name="com.example.vinilos.ui.MusicianFragment"
         android:label="musician_fragment"
         tools:layout="@layout/musician_fragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.vinilos.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_prizeFragment"
+            app:destination="@id/prizeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_musicianFragment"
+            app:destination="@id/musicianFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bandFragment"
+            app:destination="@id/bandFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bandFragment"
+        android:name="com.example.vinilos.ui.BandFragment"
+        android:label="band_fragment"
+        tools:layout="@layout/band_fragment" />
 </navigation>

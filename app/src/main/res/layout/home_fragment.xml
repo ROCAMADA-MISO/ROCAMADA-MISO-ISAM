@@ -13,7 +13,7 @@
 
         <Button
             android:id="@+id/bandListButton"
-            android:layout_width="209dp"
+            android:layout_width="198dp"
             android:layout_height="48dp"
             android:layout_marginBottom="384dp"
             android:text="Bandas"
@@ -22,7 +22,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleImage"
             app:layout_constraintVertical_bias="1.0" />
@@ -31,7 +31,7 @@
             android:id="@+id/musicianListButton"
             android:layout_width="200dp"
             android:layout_height="47dp"
-            android:layout_marginEnd="108dp"
+            android:layout_marginEnd="104dp"
             android:layout_marginBottom="308dp"
             android:text="Músicos"
             android:textColor="@color/white"
@@ -41,14 +41,14 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/createPrize"
+            android:id="@+id/prizesList"
             android:layout_width="210dp"
             android:layout_height="45dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="164dp"
             android:paddingStart="@dimen/button_padding"
             android:paddingEnd="@dimen/button_padding"
-            android:text="Crear Premios"
+            android:text="Premios"
             android:textColor="@color/white"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
@@ -74,11 +74,12 @@
             android:id="@+id/titleImage"
             android:layout_width="224dp"
             android:layout_height="118dp"
-            android:layout_marginEnd="92dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginBottom="92dp"
             android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/vinilos"
-            tools:layout_editor_absoluteY="107dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/bandListButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/vinilos" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
