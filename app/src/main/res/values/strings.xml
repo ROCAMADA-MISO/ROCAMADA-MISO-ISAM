@@ -30,6 +30,6 @@
     <string name="txt_no_prizes">Aún no hay premios</string>
     <string name="title_artists">Artistas</string>
     <string name="title_prizes">Premios</string>
-
-
+    <string name="title_musicians">Músicos</string>
+    <string name="title_bands">Bandas</string>
 </resources>
