@@ -77,6 +77,22 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    fun getAlbums(onComplete:(resp:List<Album>)->Unit, onError: (error:VolleyError)->Unit){
+        requestQueue.add(getRequest("albums",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                val list = mutableListOf<Album>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Album(id = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover")))
+                }
+                onComplete(list)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
     fun postPrize(body: JSONObject,  onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(postRequest("prizes",
             body,
