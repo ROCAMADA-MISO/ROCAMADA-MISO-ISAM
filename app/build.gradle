@@ -133,4 +133,9 @@ dependencies {
 
     androidTestImplementation 'org.robolectric:annotations:3.5.1'
 
+
+    // Network invocations lib
+    implementation 'com.android.volley:volley:1.2.1'
+
+
 }
