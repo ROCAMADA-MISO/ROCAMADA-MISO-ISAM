@@ -7,47 +7,47 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
-import com.example.vinilos.databinding.MusicianItemBinding
-import com.example.vinilos.models.Musician
+import com.example.vinilos.databinding.BandItemBinding
+import com.example.vinilos.models.Band
 
 
 /**
  * Uses the Glide library to load an image by URL into an [ImageView]
  */
 
-class MusiciansAdapter : RecyclerView.Adapter<MusiciansAdapter.MusicianViewHolder>(){
+class BandsAdapter : RecyclerView.Adapter<BandsAdapter.BandViewHolder>(){
 
-    var musicians :List<Musician> = emptyList()
+    var bands :List<Band> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicianViewHolder {
-        val withDataBinding: MusicianItemBinding = DataBindingUtil.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BandViewHolder {
+        val withDataBinding: BandItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            MusicianViewHolder.LAYOUT,
+            BandViewHolder.LAYOUT,
             parent,
             false)
-        return MusicianViewHolder(withDataBinding)
+        return BandViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: MusicianViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BandViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.musician = musicians[position]
+            it.band = bands[position]
         }
     }
 
     override fun getItemCount(): Int {
-        return musicians.size
+        return bands.size
     }
 
 
-    class MusicianViewHolder(val viewDataBinding: MusicianItemBinding) :
+    class BandViewHolder(val viewDataBinding: BandItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.musician_item
+            val LAYOUT = R.layout.band_item
         }
     }
 }
