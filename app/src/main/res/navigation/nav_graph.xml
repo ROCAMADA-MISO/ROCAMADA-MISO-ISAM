@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/musicianFragment">
+
+    <fragment
+        android:id="@+id/prizeFragment"
+        android:name="com.example.vinilos.ui.PrizeFragment"
+        android:label="prize_fragment"
+        tools:layout="@layout/prize_fragment">
+        <action
+            android:id="@+id/action_prizeFragment_to_createPrizeFragment"
+            app:destination="@id/createPrizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPrizeFragment"
+        android:name="com.example.vinilos.ui.CreatePrizeFragment"
+        android:label="fragment_create_prize"
+        tools:layout="@layout/fragment_create_prize" />
+    <fragment
+        android:id="@+id/musicianFragment"
+        android:name="com.example.vinilos.ui.MusicianFragment"
+        android:label="musician_fragment"
+        tools:layout="@layout/musician_fragment" />
+</navigation>
