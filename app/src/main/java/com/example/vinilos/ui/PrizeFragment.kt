@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
@@ -34,14 +35,23 @@ class PrizeFragment : Fragment() {
     ): View? {
         _binding = PrizeFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
+        _binding!!.prizeFormButton?.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_prizeFragment_to_createPrizeFragment))
         viewModelAdapter = PrizesAdapter()
         return view
     }
+
+    companion object {
+        fun newInstance() = PrizeFragment()
+    }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.prizesRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
+
+        activity?.actionBar?.title = getString(R.string.title_prizes)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

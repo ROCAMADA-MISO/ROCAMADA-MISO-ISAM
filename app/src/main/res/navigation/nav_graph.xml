@@ -9,5 +9,14 @@
         android:id="@+id/prizeFragment"
         android:name="com.example.vinilos.ui.PrizeFragment"
         android:label="prize_fragment"
-        tools:layout="@layout/prize_fragment" />
+        tools:layout="@layout/prize_fragment" >
+        <action
+            android:id="@+id/action_prizeFragment_to_createPrizeFragment"
+            app:destination="@id/createPrizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPrizeFragment"
+        android:name="com.example.vinilos.ui.CreatePrizeFragment"
+        android:label="fragment_create_prize"
+        tools:layout="@layout/fragment_create_prize" />
 </navigation>
