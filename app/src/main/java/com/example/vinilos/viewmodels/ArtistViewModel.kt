@@ -37,12 +37,23 @@ class ArtistViewModel(application: Application) :  AndroidViewModel(application)
         get() = _isNetworkErrorShown
 
     init {
-        refreshDataFromNetwork()
+        refreshMusiciansDataFromNetwork()
+        refreshBandsDataFromNetwork()
     }
 
-    private fun refreshDataFromNetwork() {
+    private fun refreshMusiciansDataFromNetwork() {
         musiciansRepository.refreshData({
             _musicians.postValue(it)
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+        },{
+            _eventNetworkError.value = true
+        })
+    }
+
+    private fun refreshBandsDataFromNetwork() {
+        bandsRepository.refreshData({
+            _bands.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
         },{
