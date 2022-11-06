@@ -10,6 +10,18 @@
 - Roberto Parra
 
 ## Descripción
-**Vinilos** es una aplicación que permite a un coleccionista adminstrar su colección de álbumes, bandas y artistas favoritos. Además permite ir agregando datos adcionales como distintas premiaciones que han ganado los artistas.
+**Vinilos** es una aplicación que permite a un coleccionista administrar su colección de álbumes, bandas y artistas favoritos. Además permite ir agregando datos adcionales como distintas premiaciones que han ganado los artistas.
 
 ## Instalación
+
+Pueden clonar el repositorio desde con
+
+```
+git clone https://github.com/ROCAMADA-MISO/ROCAMADA-MISO-ISAM.git
+```
+
+## Descargar APK
+
+Versión del primer release compatible con SDK desde la versión 21
+
+[APK](https://uniandes-my.sharepoint.com/:u:/r/personal/w_parrav_uniandes_edu_co/Documents/app-debug.apk?csf=1&web=1&e=oM6eqR)
