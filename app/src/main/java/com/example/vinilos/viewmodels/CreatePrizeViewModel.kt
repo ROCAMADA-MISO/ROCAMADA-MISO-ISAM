@@ -1,12 +1,13 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
+import android.provider.ContactsContract.CommonDataKinds.Organization
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.vinilos.models.Prize
 import com.example.vinilos.repositories.PrizesRepository
 
-class PrizeViewModel(application: Application) :  AndroidViewModel(application) {
+class CreatePrizeViewModel(application: Application) :  AndroidViewModel(application) {
 
     private val prizesRepository = PrizesRepository(application)
 
@@ -30,6 +31,9 @@ class PrizeViewModel(application: Application) :  AndroidViewModel(application) 
         refreshDataFromNetwork()
     }
 
+    fun createPrize(name:String,organization: String, description:String){
+        prizesRepository.createPrize(name,organization,description)
+    }
 
     private fun refreshDataFromNetwork() {
         prizesRepository.refreshData( {
@@ -48,9 +52,9 @@ class PrizeViewModel(application: Application) :  AndroidViewModel(application) 
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(PrizeViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(CreatePrizeViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return PrizeViewModel(app) as T
+                return CreatePrizeViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

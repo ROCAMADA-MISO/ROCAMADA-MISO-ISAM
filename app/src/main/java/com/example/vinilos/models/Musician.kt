@@ -10,12 +10,10 @@ data class Musician(
     val name: String,
     val image: String,
 ) : Parcelable {
-
     constructor(
         id: Int,
         name: String,
         image: String,
         birthDate: String?,
     ) : this(id, name, image)
-
 }

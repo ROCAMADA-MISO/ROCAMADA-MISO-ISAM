@@ -18,7 +18,11 @@
         android:id="@+id/createPrizeFragment"
         android:name="com.example.vinilos.ui.CreatePrizeFragment"
         android:label="fragment_create_prize"
-        tools:layout="@layout/fragment_create_prize" />
+        tools:layout="@layout/prize_create_fragment" >
+        <action
+            android:id="@+id/action_createPrizeFragment_to_prizeFragment"
+            app:destination="@id/prizeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/musicianFragment"
         android:name="com.example.vinilos.ui.MusicianFragment"

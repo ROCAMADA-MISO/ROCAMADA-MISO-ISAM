@@ -47,7 +47,7 @@ class NetworkServiceAdapter constructor(context: Context) {
     }
 
     fun getBands(onComplete:(resp:List<Band>)->Unit, onError: (error:VolleyError)->Unit){
-        requestQueue.add(getRequest("musicians",
+        requestQueue.add(getRequest("bands",
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Band>()
