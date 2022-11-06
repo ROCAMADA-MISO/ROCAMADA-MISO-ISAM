@@ -25,7 +25,7 @@ public class CreatePrizeTest {
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void mainActivityTest() {
+    public void successfulCreatePrize() {
         ViewInteraction prizeButton = onView(allOf(withId(R.id.prizesList), withText("Premios")));
         prizeButton.perform(click());
 
