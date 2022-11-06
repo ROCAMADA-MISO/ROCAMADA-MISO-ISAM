@@ -9,11 +9,6 @@
 - Manuel Bello
 - Roberto Parra
 
-- Roberto Parra
-- Camilo Sanchez
-- Daniela Castellanos
-- Manuel Bello
-
 ## Descripción
 **Vinilos** es una aplicación que permite a un coleccionista adminstrar su colección de álbumes, bandas y artistas favoritos. Además permite ir agregando datos adcionales como distintas premiaciones que han ganado los artistas.
 
