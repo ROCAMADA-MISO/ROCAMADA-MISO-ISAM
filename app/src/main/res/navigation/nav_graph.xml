@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/albumsFragment"
         android:name="com.example.vinilos.ui.AlbumsFragment"
-        android:label="albums_fragment"
+        android:label="Álbumes"
         tools:layout="@layout/albums_fragment" />
     <fragment
         android:id="@+id/homeFragment"
@@ -44,7 +44,7 @@
             app:destination="@id/bandFragment" />
         <action
             android:id="@+id/action_homeFragment_to_albumsFragment"
-            app:destination="@id/albumsFragment" />
+            app:destination="@id/albumsFragment"/>
     </fragment>
     <fragment
         android:id="@+id/bandFragment"
