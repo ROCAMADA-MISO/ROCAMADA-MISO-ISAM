@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
         val binding: HomeFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.home_fragment,container,false)
         binding.bandListButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_bandFragment))
         binding.musicianListButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_musicianFragment))
+        binding.albumsListButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_albumsFragment))
         binding.prizesList.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_prizeFragment))
 
         return binding.root
