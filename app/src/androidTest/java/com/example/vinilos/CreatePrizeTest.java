@@ -1,5 +1,6 @@
 package com.example.vinilos;
 
+import androidx.test.espresso.Espresso;
 import androidx.test.filters.LargeTest;
 import static org.hamcrest.Matchers.allOf;
 import com.example.vinilos.ui.MainActivity;
@@ -7,10 +8,15 @@ import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import static androidx.test.espresso.Espresso.onView;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
+
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
+
 
 
 
@@ -25,7 +31,7 @@ public class CreatePrizeTest {
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void successfulCreatePrize() {
+    public void successfulCreatePrize() throws InterruptedException {
         ViewInteraction prizeButton = onView(allOf(withId(R.id.prizesList), withText("Premios")));
         prizeButton.perform(click());
 
@@ -33,7 +39,9 @@ public class CreatePrizeTest {
         createPrizeButton.perform(click());
 
         ViewInteraction nameField = onView(allOf(withId(R.id.awardNameEditText)));
-        nameField.perform(typeText("Premio a mejor artista independiente"));
+
+        String currentDate = new java.util.Date().toString();
+        nameField.perform(typeText("Premio a mejor artista independiente " + currentDate));
 
         ViewInteraction organizationField = onView(allOf(withId(R.id.awardOrganizationEditText)));
         organizationField.perform(typeText("Grammy's"));
@@ -43,5 +51,11 @@ public class CreatePrizeTest {
 
         ViewInteraction confirmCreatePrizeButton = onView(allOf(withId(R.id.create_prize_button)));
         confirmCreatePrizeButton.perform(click());
+
+        Espresso.pressBack();
+
+        Thread.sleep(10000);
+
+        onView(withText("Premio a mejor artista independiente " + currentDate)).check(matches(isDisplayed()));
     }
 }
