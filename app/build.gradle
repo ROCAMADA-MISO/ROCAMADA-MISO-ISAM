@@ -87,6 +87,7 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:4.14.2"
+    kapt "com.github.bumptech.glide:compiler:4.14.2"
 
     // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -132,5 +133,10 @@ dependencies {
     debugImplementation 'androidx.fragment:fragment-testing:1.5.3'
 
     androidTestImplementation 'org.robolectric:annotations:3.5.1'
+
+
+    // Network invocations lib
+    implementation 'com.android.volley:volley:1.2.1'
+
 
 }
