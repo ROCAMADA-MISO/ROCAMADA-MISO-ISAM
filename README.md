@@ -30,6 +30,12 @@ git clone https://github.com/ROCAMADA-MISO/ROCAMADA-MISO-ISAM.git
 
 ## Interfaces
 
+Home            |  Listado de álbumes | Listado de Músicos
+:-------------------------:|:-------------------------:|:-------------------------:
+![Image](https://user-images.githubusercontent.com/78032463/200223655-bbf8de03-3f62-4dd3-acfd-5b549ec68d50.png)  | ![Image](https://user-images.githubusercontent.com/78032463/200223764-02010dc3-2a9f-486e-b994-65ad1bbff624.png) | ![Image](https://user-images.githubusercontent.com/78032463/200223924-9409ada5-6481-448a-9b76-c255626503fa.png)
+Lista de Bandas            |  Listado de Premios | Crear Premio
+![Image](https://user-images.githubusercontent.com/78032463/200224226-332cc0fb-1326-4129-80e0-c76d86105205.png)  | ![Image](https://user-images.githubusercontent.com/78032463/200224288-7e79f571-7e93-4226-8c75-8c2eaf20b4ed.png) | ![Image](https://user-images.githubusercontent.com/78032463/200224367-8d5620c4-1b66-402f-8c1e-15532fb34515.png)
+
 
 ## Descargar APK
 
