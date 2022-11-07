@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/prizeFragment"
+        android:name="com.example.vinilos.ui.PrizeFragment"
+        android:label="Lista de Premios"
+        tools:layout="@layout/prize_fragment">
+        <action
+            android:id="@+id/action_prizeFragment_to_createPrizeFragment"
+            app:destination="@id/createPrizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPrizeFragment"
+        android:name="com.example.vinilos.ui.CreatePrizeFragment"
+        android:label="Crear Premios"
+        tools:layout="@layout/prize_create_fragment" >
+        <action
+            android:id="@+id/action_createPrizeFragment_to_prizeFragment"
+            app:destination="@id/prizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicianFragment"
+        android:name="com.example.vinilos.ui.MusicianFragment"
+        android:label="Músicos"
+        tools:layout="@layout/musician_fragment" />
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="com.example.vinilos.ui.AlbumsFragment"
+        android:label="Álbumes"
+        tools:layout="@layout/albums_fragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.vinilos.HomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_prizeFragment"
+            app:destination="@id/prizeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_musicianFragment"
+            app:destination="@id/musicianFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bandFragment"
+            app:destination="@id/bandFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_albumsFragment"
+            app:destination="@id/albumsFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/bandFragment"
+        android:name="com.example.vinilos.ui.BandFragment"
+        android:label="Bandas"
+        tools:layout="@layout/band_fragment" />
+</navigation>
