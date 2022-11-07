@@ -20,8 +20,17 @@ Pueden clonar el repositorio desde con
 git clone https://github.com/ROCAMADA-MISO/ROCAMADA-MISO-ISAM.git
 ```
 
+## Funcionalidades habilitadas en el primer release desde el Home
+
+- Consultar lista de Músicos
+- Consultar lista Álbumes
+- Consultar lista de Bandas
+- Consultar lista de Premios
+- Crear Premios
+
+
 ## Descargar APK
 
-Versión del primer release compatible con SDK desde la versión 21
+Versión del primer release compatible con SDK desde la versión 21 y la SDK target es la versión 32
 
-[APK](https://uniandes-my.sharepoint.com/:u:/r/personal/w_parrav_uniandes_edu_co/Documents/app-debug.apk?csf=1&web=1&e=oM6eqR)
+[APK](https://uniandes-my.sharepoint.com/:u:/g/personal/w_parrav_uniandes_edu_co/EZ3HLRadWNxAs0Xxh7YxpH4BFVwduQW1_KPmXp6FcaMP2w?e=TkzgXv)
