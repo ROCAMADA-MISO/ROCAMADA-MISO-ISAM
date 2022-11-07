@@ -34,7 +34,7 @@ public class ListPrizeTest {
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void listMusicians() throws InterruptedException {
+    public void listPrizes() throws InterruptedException {
         ViewInteraction musiciansButton = onView(allOf(withId(R.id.prizesList)));
         musiciansButton.perform(click());
         Thread.sleep(10000);

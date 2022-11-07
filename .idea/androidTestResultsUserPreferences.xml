@@ -3,118 +3,13 @@
   <component name="AndroidTestResultsUserPreferences">
     <option name="androidTestResultsTableState">
       <map>
-<<<<<<< HEAD
-        <entry key="-1321424660">
-=======
-        <entry key="-1073333756">
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="Duration" value="90" />
-<<<<<<< HEAD
-                  <entry key="Nexus_5_API_26" value="120" />
-=======
-                  <entry key="Pixel_4_API_30" value="120" />
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="-1073333756">
-=======
-        <entry key="-748950798">
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="Duration" value="90" />
-                  <entry key="Pixel_4_API_30" value="120" />
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
         <entry key="-496605041">
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
-<<<<<<< HEAD
-                  <entry key="Nexus_5_API_26" value="120" />
-=======
                   <entry key="Pixel_4_API_30" value="120" />
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="-135934774">
-=======
-        <entry key="-364227422">
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="Duration" value="90" />
-<<<<<<< HEAD
-                  <entry key="Nexus_5_API_26" value="120" />
-=======
-                  <entry key="Pixel_4_API_30" value="120" />
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="380869991">
-=======
-        <entry key="485057834">
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="Duration" value="90" />
-<<<<<<< HEAD
-                  <entry key="Nexus_5_API_26" value="120" />
-=======
-                  <entry key="Pixel_4_API_30" value="120" />
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-                  <entry key="Tests" value="360" />
-                </map>
-              </option>
-            </AndroidTestResultsTableState>
-          </value>
-        </entry>
-<<<<<<< HEAD
-        <entry key="1998000278">
-=======
-        <entry key="1366842508">
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
-          <value>
-            <AndroidTestResultsTableState>
-              <option name="preferredColumnWidths">
-                <map>
-                  <entry key="Duration" value="90" />
-<<<<<<< HEAD
-                  <entry key="Nexus_5_API_26" value="120" />
-=======
-                  <entry key="Pixel_4_API_30" value="120" />
->>>>>>> c849f57dd16ee6d2907040ea9432bf85b5823f73
                   <entry key="Tests" value="360" />
                 </map>
               </option>
