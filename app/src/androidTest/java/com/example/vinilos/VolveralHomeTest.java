@@ -26,7 +26,7 @@ public class VolveralHomeTest {
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void listAlbums() throws InterruptedException {
+    public void GoToHomeFromAlbum() throws InterruptedException {
         onView(withId(R.id.albumsListButton))
                 .perform(click());
         onView(isRoot()).perform(pressBack());

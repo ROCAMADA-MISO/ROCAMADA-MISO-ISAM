@@ -26,7 +26,7 @@ public class PrizeToHomeTest {
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void listMusician() throws InterruptedException {
+    public void GoToHomeFromPrizes() throws InterruptedException {
         onView(withId(R.id.prizesList))
                 .perform(click());
         onView(isRoot()).perform(pressBack());
