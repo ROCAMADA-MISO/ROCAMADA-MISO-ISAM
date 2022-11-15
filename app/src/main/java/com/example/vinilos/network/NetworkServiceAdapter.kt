@@ -83,13 +83,14 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
-    suspend fun getMusician(musicianId:Int) = suspendCoroutine<JSONObject>{ cont->
+    suspend fun getMusician(musicianId:Int) = suspendCoroutine<Musician>{ cont->
         requestQueue.add(getRequest("musicians/$musicianId",
             Response.Listener<String> { response ->
                 val resp = JSONObject(response)
+                Log.d("RESPONSE", resp.toString())
                 var item:JSONObject? = null
-                item = resp
-                cont.resume(item)
+                item = resp;
+                cont.resume(Musician(id = item.getInt("id"),name = item.getString("name"),image = item.getString("image")))
             },
             Response.ErrorListener {
                 cont.resumeWithException(it)
