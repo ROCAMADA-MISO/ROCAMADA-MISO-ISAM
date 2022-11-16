@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Vinilos</string>
+    <string name="albums">Albums</string>
+    <string name="musicians">Músicos</string>
+    <string name="bands">Bandas</string>
+    <string name="prizes">Premios</string>
+
     <string name="create_prize">Crear premio</string>
     <string name="about">Acerca de</string>
     <string name="show_all">Show all</string>

@@ -1,6 +1,8 @@
 package com.example.vinilos.network
 
 import android.content.Context
+import android.util.Log
+import androidx.compose.runtime.mutableStateOf
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -14,6 +16,9 @@ import com.example.vinilos.models.Musician
 import com.example.vinilos.models.Prize
 import org.json.JSONArray
 import org.json.JSONObject
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
@@ -78,6 +83,21 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    suspend fun getMusician(musicianId:Int) = suspendCoroutine<Musician>{ cont->
+        requestQueue.add(getRequest("musicians/$musicianId",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                Log.d("RESPONSE", resp.toString())
+                var item:JSONObject? = null
+                item = resp;
+                cont.resume(Musician(id = item.getInt("id"),name = item.getString("name"),image = item.getString("image")))
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
+
     fun getAlbums(onComplete:(resp:List<Albums>)->Unit, onError: (error:VolleyError)->Unit){
         requestQueue.add(getRequest("albums",
             Response.Listener<String> { response ->
@@ -114,3 +134,4 @@ class NetworkServiceAdapter constructor(context: Context) {
         return  JsonObjectRequest(Request.Method.PUT, BASE_URL+path, body, responseListener, errorListener)
     }
 }
+
