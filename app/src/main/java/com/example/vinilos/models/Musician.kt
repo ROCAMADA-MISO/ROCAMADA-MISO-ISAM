@@ -7,5 +7,4 @@ data class Musician (
     val image: String,
     val description: String,
     val birthDate: String,
-    val albums:Array<Album>,
 )
