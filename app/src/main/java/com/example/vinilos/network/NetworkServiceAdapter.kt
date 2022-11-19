@@ -2,7 +2,6 @@ package com.example.vinilos.network
 
 import android.content.Context
 import android.util.Log
-import androidx.compose.runtime.mutableStateOf
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -58,7 +57,13 @@ class NetworkServiceAdapter constructor(context: Context) {
                 val list = mutableListOf<Band>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    list.add(i, Band(id = item.getInt("id"),name = item.getString("name"), image = item.getString("image")))
+                    list.add(i, Band(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        image = item.getString("image"),
+                        description = item.getString("description"),
+                        creationDate = item.getString("creationDate"))
+                    )
                 }
                 onComplete(list)
             },
@@ -74,7 +79,12 @@ class NetworkServiceAdapter constructor(context: Context) {
                 val list = mutableListOf<Musician>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    list.add(i, Musician(id = item.getInt("id"),name = item.getString("name"), image = item.getString("image")))
+                    list.add(i, Musician(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        image = item.getString("image"),
+                        description = item.getString("description"),
+                        birthDate = item.getString("birthDate")))
                 }
                 onComplete(list)
             },
@@ -90,7 +100,34 @@ class NetworkServiceAdapter constructor(context: Context) {
                 Log.d("RESPONSE", resp.toString())
                 var item:JSONObject? = null
                 item = resp;
-                cont.resume(Musician(id = item.getInt("id"),name = item.getString("name"),image = item.getString("image")))
+                cont.resume(Musician(
+                    id = item.getInt("id"),
+                    name = item.getString("name"),
+                    image = item.getString("image"),
+                    description = item.getString("description"),
+                    birthDate = item.getString("birthDate"))
+                )
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
+
+    suspend fun getBand(bandId:Int) = suspendCoroutine<Band>{ cont->
+        requestQueue.add(getRequest("bands/$bandId",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                Log.d("RESPONSE", resp.toString())
+                var item:JSONObject? = null
+                item = resp;
+                cont.resume(Band(
+                    id = item.getInt("id"),
+                    name = item.getString("name"),
+                    image = item.getString("image"),
+                    description = item.getString("description"),
+                    creationDate = item.getString("creationDate"))
+                )
             },
             Response.ErrorListener {
                 cont.resumeWithException(it)
