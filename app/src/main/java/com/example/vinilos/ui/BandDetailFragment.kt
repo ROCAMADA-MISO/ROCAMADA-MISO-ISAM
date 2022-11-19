@@ -10,27 +10,27 @@ import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.example.vinilos.databinding.MusicianDetailFragmentBinding
-import com.example.vinilos.viewmodels.MusicianDetailViewModel
+import com.example.vinilos.databinding.BandDetailFragmentBinding
+import com.example.vinilos.viewmodels.BandDetailViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class MusicianDetailFragment : Fragment() {
-    private var _binding: MusicianDetailFragmentBinding? = null
+class BandDetailFragment : Fragment() {
+    private var _binding: BandDetailFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: MusicianDetailViewModel
+    private lateinit var viewModel: BandDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val application = requireNotNull(activity).application
-        val args: MusicianDetailFragmentArgs by navArgs()
-        Log.d("Musico seleccionado", args.musicianId.toString())
-        _binding = MusicianDetailFragmentBinding.inflate(inflater, container, false)
+        val args: BandDetailFragmentArgs by navArgs()
+        Log.d("Banda seleccionada", args.bandId.toString())
+        _binding = BandDetailFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-        binding.viewModel = ViewModelProvider(this, MusicianDetailViewModel.Factory(application, args.musicianId)).get(MusicianDetailViewModel::class.java)
+        binding.viewModel = ViewModelProvider(this, BandDetailViewModel.Factory(application, args.bandId)).get(BandDetailViewModel::class.java)
         return binding.root
     }
 
@@ -39,7 +39,7 @@ class MusicianDetailFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = "Musico"
+        activity.actionBar?.title = "Band"
     }
     override fun onDestroyView() {
         super.onDestroyView()
