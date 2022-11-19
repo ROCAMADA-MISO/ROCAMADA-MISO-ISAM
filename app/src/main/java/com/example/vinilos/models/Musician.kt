@@ -1,20 +1,11 @@
 package com.example.vinilos.models
 
-import android.os.Parcelable
-import com.squareup.moshi.Json
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
-data class Musician(
+data class Musician (
     val id: Int,
     val name: String,
     val image: String,
-    val birthDate: String?
-) : Parcelable {
-    constructor(
-        id: Int,
-        name: String,
-        image: String,
-        birthDate: String?,
-    ) : this(id, name, image)
-}
+    val description: String,
+    val birthDate: String,
+    val albums:Array<Album>,
+)
