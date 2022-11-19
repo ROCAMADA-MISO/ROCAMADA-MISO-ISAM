@@ -9,6 +9,7 @@ data class Musician(
     val id: Int,
     val name: String,
     val image: String,
+    val birthDate: String?
 ) : Parcelable {
     constructor(
         id: Int,

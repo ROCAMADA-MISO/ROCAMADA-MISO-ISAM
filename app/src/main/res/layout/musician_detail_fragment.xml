@@ -15,6 +15,12 @@
     android:orientation="vertical"
     tools:context=".ui.MusicianDetailFragment">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        app:imageUrl="@{viewModel.musician.image}"/>
+
     <TextView
         android:id="@+id/property_type_text"
         android:layout_width="wrap_content"
@@ -23,6 +29,14 @@
         android:text="@{viewModel.musician.name}"
         android:textSize="39sp"
         tools:text="Musician name" />
+
+    <TextView
+        android:id="@+id/name_text"
+        style="@style/SubtitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.musician.birthDate}"
+        android:textAlignment="textStart" />
 
 </LinearLayout>
 
