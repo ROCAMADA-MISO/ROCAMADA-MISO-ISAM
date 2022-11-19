@@ -37,7 +37,7 @@ class BandsAdapter : RecyclerView.Adapter<BandsAdapter.BandViewHolder>(){
         return BandViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: BandsAdapter.BandViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BandViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.band = bands[position]
         }
@@ -48,6 +48,7 @@ class BandsAdapter : RecyclerView.Adapter<BandsAdapter.BandViewHolder>(){
             holder.viewDataBinding.root.findNavController().navigate(action)
         }
     }
+
 
     override fun getItemCount(): Int {
         return bands.size

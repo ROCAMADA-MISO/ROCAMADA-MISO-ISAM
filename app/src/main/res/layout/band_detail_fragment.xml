@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
@@ -24,7 +23,7 @@
             tools:src="@tools:sample/backgrounds/scenic"/>
 
         <TextView
-            android:id="@+id/musician_name_text"
+            android:id="@+id/band_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -50,5 +49,6 @@
             android:text="@{viewModel.band.description}"
             android:textAlignment="textStart"
             tools:text="Es un cantante, compositor, músico, actor, abogado, político y activista panameño. Ha desarrollado gran parte de su carrera artística en la ciudad de Nueva York."/>
+
     </LinearLayout>
 </layout>
