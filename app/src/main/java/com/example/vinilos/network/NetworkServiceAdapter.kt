@@ -9,10 +9,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.vinilos.models.Albums
-import com.example.vinilos.models.Band
-import com.example.vinilos.models.Musician
-import com.example.vinilos.models.Prize
+import com.example.vinilos.models.*
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.coroutines.resume
@@ -148,6 +145,29 @@ class NetworkServiceAdapter constructor(context: Context) {
             },
             Response.ErrorListener {
                 onError(it)
+            }))
+    }
+
+    suspend fun getAlbum(albumId:Int) = suspendCoroutine<Album>{ cont->
+        requestQueue.add(getRequest("albums/$albumId",
+            Response.Listener<String> { response ->
+                val resp = JSONObject(response)
+                Log.d("RESPONSE", resp.toString())
+                var item:JSONObject? = null
+                item = resp;
+                cont.resume(Album(
+                    id = item.getInt("id"),
+                    name = item.getString("name"),
+                    cover = item.getString("cover"),
+                    releaseDate = item.getString("releaseDate"),
+                    description = item.getString("description"),
+                    genre = item.getString("genre"),
+                    recordLabel = item.getString("recordLabel")
+                )
+                )
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
             }))
     }
 
