@@ -36,8 +36,8 @@ public class CreateAlbumTest {
     @Test
     public void successfulCreateAlbum() throws InterruptedException {
 
-        ViewInteraction musiciansButton = onView(allOf(withId(R.id.albumsListButton)));
-        musiciansButton.perform(click());
+        ViewInteraction AlbumButton = onView(allOf(withId(R.id.albumsListButton)));
+        AlbumButton.perform(click());
         Thread.sleep(10000);
 
         ViewInteraction createAlbumButton = onView(allOf(withId(R.id.album_form_button)));
