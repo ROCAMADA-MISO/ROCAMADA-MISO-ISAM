@@ -36,7 +36,20 @@
         android:id="@+id/albumsFragment"
         android:name="com.example.vinilos.ui.AlbumsFragment"
         android:label="Álbumes"
-        tools:layout="@layout/albums_fragment" />
+        tools:layout="@layout/albums_fragment" >
+        <action
+            android:id="@+id/action_albumFragment_to_createAlbumFragment"
+            app:destination="@id/CreateAlbumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateAlbumFragment"
+        android:name="com.example.vinilos.ui.CreateAlbumFragment"
+        android:label="Álbumes"
+        tools:layout="@layout/album_create_fragment" >
+        <action
+            android:id="@+id/action_createAlbumFragment_to_albumFragment"
+            app:destination="@id/albumsFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.vinilos.HomeFragment"

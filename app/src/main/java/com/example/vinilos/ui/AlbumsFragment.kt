@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
@@ -34,6 +35,7 @@ class AlbumsFragment : Fragment() {
     ): View? {
         _binding = AlbumsFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
+        _binding!!.albumFormButton?.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_albumFragment_to_createAlbumFragment))
         viewModelAdapter = AlbumsAdapter()
         return view
     }

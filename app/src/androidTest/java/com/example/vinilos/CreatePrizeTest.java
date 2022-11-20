@@ -16,10 +16,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-
-
-
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -2,21 +2,22 @@ package com.example.vinilos.viewmodels
 
 import android.app.Application
 import android.os.Build
-import android.provider.ContactsContract.CommonDataKinds.Organization
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
-import com.example.vinilos.models.Prize
-import com.example.vinilos.repositories.PrizesRepository
+import com.example.vinilos.models.Albums
+import com.example.vinilos.network.NetworkServiceAdapter
+import com.example.vinilos.repositories.AlbumsRepository
 
-class CreatePrizeViewModel(application: Application) :  AndroidViewModel(application) {
 
-    private val prizesRepository = PrizesRepository(application)
+class CreateAlbumViewModel(application: Application) :  AndroidViewModel(application) {
 
-    private val _prizes = MutableLiveData<List<Prize>>()
+    private val albumRepository = AlbumsRepository(application)
 
-    val prizes: LiveData<List<Prize>>
-        get() = _prizes
+    private val _albums = MutableLiveData<List<Albums>>()
+
+    val albums: LiveData<List<Albums>>
+        get() = _albums
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -29,18 +30,15 @@ class CreatePrizeViewModel(application: Application) :  AndroidViewModel(applica
         get() = _isNetworkErrorShown
 
 
-    init {
-        refreshDataFromNetwork()
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    fun createAlbum(name:String, cover: String, releaseDate:String, description:String, genre:String, recordLabel:String ){
+        val resp =  albumRepository.createAlbum(name,cover,releaseDate,description, genre, recordLabel)
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    fun createPrize(name:String, organization: String, description:String){
-        prizesRepository.createPrize(name,organization,description)
-    }
 
     private fun refreshDataFromNetwork() {
-        prizesRepository.refreshData( {
-            _prizes.postValue(it)
+        albumRepository.refreshData( {
+            _albums.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
         },{
@@ -55,9 +53,9 @@ class CreatePrizeViewModel(application: Application) :  AndroidViewModel(applica
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(CreatePrizeViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(CreateAlbumViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return CreatePrizeViewModel(app) as T
+                return CreateAlbumViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
