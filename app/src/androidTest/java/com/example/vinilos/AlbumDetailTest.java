@@ -29,15 +29,18 @@ import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class ListAlbumTest {
+public class AlbumDetailTest {
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void listMusicians() throws InterruptedException {
-        ViewInteraction musiciansButton = onView(allOf(withId(R.id.albumsListButton)));
-        musiciansButton.perform(click());
+    public void listAlbum() throws InterruptedException {
+        onView(withId(R.id.albumsListButton))
+                .perform(click());
         Thread.sleep(10000);
-        onView(withText("Poeta del pueblo")).check(matches(isDisplayed()));
+        ViewInteraction albumDetail = onView(withText("Poeta del pueblo"));
+       albumDetail.perform(click());
+        Thread.sleep(10000);
+        onView((withText("Poeta del pueblo"))).check(matches(isDisplayed()));
     }
 }
