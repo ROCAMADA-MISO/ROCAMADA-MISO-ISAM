@@ -34,14 +34,14 @@ public class CreateAlbumTest {
 
 
     @Test
-    public void successfulCreatePrize() throws InterruptedException {
+    public void successfulCreateAlbum() throws InterruptedException {
 
         ViewInteraction musiciansButton = onView(allOf(withId(R.id.albumsListButton)));
         musiciansButton.perform(click());
         Thread.sleep(10000);
 
-        ViewInteraction createPrizeButton = onView(allOf(withId(R.id.album_form_button)));
-        createPrizeButton.perform(click());
+        ViewInteraction createAlbumButton = onView(allOf(withId(R.id.album_form_button)));
+        createAlbumButton.perform(click());
 
         ViewInteraction nameField = onView(allOf(withId(R.id.AlbumNameEditText)));
 
