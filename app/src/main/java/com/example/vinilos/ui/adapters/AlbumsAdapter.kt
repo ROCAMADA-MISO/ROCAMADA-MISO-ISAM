@@ -14,6 +14,7 @@ import com.example.vinilos.R
 import com.example.vinilos.databinding.AlbumsItemBinding
 import com.example.vinilos.models.Albums
 import com.example.vinilos.ui.AlbumsFragmentDirections
+import com.example.vinilos.ui.CreateAlbumFragmentDirections.Companion.actionAlbumFragmentToAlbumDetailFragment
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
@@ -42,9 +43,11 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumsViewHolder>() {
         }
         holder.bind(albums[position])
         holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumsFragmentDirections.actionAlbumFragmentToAlbumDetailFragment(albums[position].id)
+            val action = AlbumsFragmentDirections.actionAlbumFragmentToCreateAlbumFragment()
+            val action2 = AlbumsFragmentDirections.actionAlbumFragmentToAlbumDetailFragment(albums[position].id)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
+            holder.viewDataBinding.root.findNavController().navigate(action2)
         }
     }
 

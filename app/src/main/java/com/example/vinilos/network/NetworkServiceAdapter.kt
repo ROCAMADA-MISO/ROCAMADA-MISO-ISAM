@@ -139,7 +139,9 @@ class NetworkServiceAdapter constructor(context: Context) {
                 val list = mutableListOf<Albums>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    list.add(i, Albums(id = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover")))
+                    list.add(i, Albums(
+                        id = item.getInt("id"),
+                        name = item.getString("name"), cover = item.getString("cover"), releaseDate = null, description = item.getString("description"), "", ""))
                 }
                 onComplete(list)
             },
@@ -175,6 +177,19 @@ class NetworkServiceAdapter constructor(context: Context) {
         requestQueue.add(postRequest("prizes",
             body,
             Response.Listener<JSONObject> { response ->
+
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+    fun postAlbum(body: JSONObject,  onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(postRequest("albums",
+            body,
+            Response.Listener<JSONObject> { response ->
+
                 onComplete(response)
             },
             Response.ErrorListener {

@@ -45,10 +45,25 @@
         android:id="@+id/albumsFragment"
         android:name="com.example.vinilos.ui.AlbumsFragment"
         android:label="Álbumes"
-        tools:layout="@layout/albums_fragment">
-    <action
-        android:id="@+id/action_albumFragment_to_albumDetailFragment"
-        app:destination="@id/albumDetailFragment" />
+        tools:layout="@layout/albums_fragment" >
+        <action
+            android:id="@+id/action_albumFragment_to_createAlbumFragment"
+            app:destination="@id/CreateAlbumFragment" />
+        <action
+            android:id="@+id/action_albumFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CreateAlbumFragment"
+        android:name="com.example.vinilos.ui.CreateAlbumFragment"
+        android:label="Álbumes"
+        tools:layout="@layout/album_create_fragment" >
+        <action
+            android:id="@+id/action_createAlbumFragment_to_albumFragment"
+            app:destination="@id/albumsFragment"/>
+        <action
+            android:id="@+id/action_albumFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
