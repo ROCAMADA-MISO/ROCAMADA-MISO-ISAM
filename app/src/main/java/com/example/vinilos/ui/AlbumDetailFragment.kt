@@ -1,36 +1,34 @@
 package com.example.vinilos.ui
 
-import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-
+import com.example.vinilos.viewmodels.AlbumDetailViewModel
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.example.vinilos.databinding.MusicianDetailFragmentBinding
-import com.example.vinilos.viewmodels.MusicianDetailViewModel
+import com.example.vinilos.databinding.AlbumDetailFragmentBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class MusicianDetailFragment : Fragment() {
-    private var _binding: MusicianDetailFragmentBinding? = null
+
+
+class AlbumDetailFragment : Fragment() {
+    private var _binding: AlbumDetailFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: MusicianDetailViewModel
+    private lateinit var viewModel: AlbumDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val application = requireNotNull(activity).application
-        val args: MusicianDetailFragmentArgs by navArgs()
-        Log.d("Musico seleccionado", args.musicianId.toString())
-        _binding = MusicianDetailFragmentBinding.inflate(inflater, container, false)
+        val args: AlbumDetailFragmentArgs by navArgs()
+        Log.d("Álbum seleccionado", args.albumId.toString())
+        _binding = AlbumDetailFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-        binding.viewModel = ViewModelProvider(this, MusicianDetailViewModel.Factory(application, args.musicianId)).get(MusicianDetailViewModel::class.java)
+        binding.viewModel = ViewModelProvider(this, AlbumDetailViewModel.Factory(application, args.albumId)).get(AlbumDetailViewModel::class.java)
         return binding.root
     }
 
@@ -39,7 +37,7 @@ class MusicianDetailFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = "Musico"
+        activity.actionBar?.title = "Álbum"
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -52,4 +50,5 @@ class MusicianDetailFragment : Fragment() {
             viewModel.onNetworkErrorShown()
         }
     }
+
 }

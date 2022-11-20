@@ -30,12 +30,7 @@
                 <ImageView
                     android:id="@+id/albums_cover"
                     android:layout_width="180dp"
-                    android:layout_height="70dp"
-                    android:adjustViewBounds="true"
-                    android:padding="42dp"
-                    android:scaleType="centerCrop"
-                    android:src="@{albums.cover}"
-                    tools:src="@tools:sample/backgrounds/scenic" />
+                    android:layout_height="70dp"/>
                 <TextView
                     android:id="@+id/textView61"
                     android:layout_width="match_parent"

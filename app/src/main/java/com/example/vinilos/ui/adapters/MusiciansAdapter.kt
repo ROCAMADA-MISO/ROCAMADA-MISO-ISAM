@@ -67,7 +67,7 @@ class MusiciansAdapter : RecyclerView.Adapter<MusiciansAdapter.MusicianViewHolde
                         .placeholder(R.drawable.loading_animation)
 
                         .error(R.drawable.ic_broken_image))
-                .into(viewDataBinding.albumCover)
+                .into(viewDataBinding.musicianImage)
         }
 
     }
