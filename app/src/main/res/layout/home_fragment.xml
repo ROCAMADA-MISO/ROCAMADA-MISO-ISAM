@@ -11,7 +11,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingStart="@dimen/padding"
-        android:paddingEnd="@dimen/padding">
+        android:paddingEnd="@dimen/padding"
+        android:background="@drawable/background"
+        android:scaleType = "centerCrop">
 
         <TextView
             android:id="@+id/name_text"
