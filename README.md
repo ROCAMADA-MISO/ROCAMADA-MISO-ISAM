@@ -22,7 +22,7 @@ git clone https://github.com/ROCAMADA-MISO/ROCAMADA-MISO-ISAM.git
 Abrir el repositorio con Android Studio y ejecutar el proyecto, asegurarse de tener un emulador descargado, este proyecto fue testeado en un Emulador `Pixel 4 API 30`
 
 
-## Funcionalidades habilitadas en el primer release desde el Home
+## Funcionalidades habilitadas en el **primer release** desde el Home
 
 - Consultar lista de Músicos
 - Consultar lista Álbumes
@@ -44,3 +44,22 @@ Lista de Bandas            |  Listado de Premios | Crear Premio
 Versión del primer release compatible con SDK desde la versión 21 y la SDK target es la versión 32
 
 [APK](https://uniandes-my.sharepoint.com/:u:/g/personal/w_parrav_uniandes_edu_co/EZ3HLRadWNxAs0Xxh7YxpH4BFVwduQW1_KPmXp6FcaMP2w?e=gQ5Uw8)
+
+-----
+
+## Funcionalidades habilitadas en el **segundo release**
+
+- Consultar detalle de álbumes
+- Crear álbumes
+- Consultar detalle de artistas
+- Consultar detalle de bandas
+
+
+## Interfaces
+
+
+Home            |  Listado de álbumes | Listado de Músicos
+:-------------------------:|:-------------------------:|:-------------------------:
+![Image](https://user-images.githubusercontent.com/78032463/202945463-a2e2dc38-9e10-44f5-94f3-fa2b15ccdad3.png)  | ![Image](https://user-images.githubusercontent.com/78032463/200223764-02010dc3-2a9f-486e-b994-65ad1bbff624.png) | ![Image](https://user-images.githubusercontent.com/78032463/200223924-9409ada5-6481-448a-9b76-c255626503fa.png)
+Lista de Bandas            |  Listado de Premios | Crear Premio
+![Image](https://user-images.githubusercontent.com/78032463/200224226-332cc0fb-1326-4129-80e0-c76d86105205.png)  | ![Image](https://user-images.githubusercontent.com/78032463/200224288-7e79f571-7e93-4226-8c75-8c2eaf20b4ed.png) | ![Image](https://user-images.githubusercontent.com/78032463/200224367-8d5620c4-1b66-402f-8c1e-15532fb34515.png)
