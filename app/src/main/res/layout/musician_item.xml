@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="musician" type="com.example.vinilos.models.Musician"/>
@@ -18,28 +17,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/stroke_color"
-            app:strokeWidth="1dp">
+            app:cardCornerRadius="5dp"
+            android:layout_margin="10dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/musician_image"
                     android:layout_width="180dp"
                     android:layout_height="70dp"
-                    android:adjustViewBounds="true"
-                    android:padding="42dp"
-                    android:scaleType="centerCrop"
-                    android:src="@{musician.image}"
-                    tools:src="@tools:sample/backgrounds/scenic" />
+                    android:id="@+id/musician_image"
+                    />
                 <TextView
-                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
-                    android:layout_height="17dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/musician_name_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="21dp"
                     android:text="@{musician.name}"
-                    tools:text="Artist" />
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
