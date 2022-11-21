@@ -40,7 +40,7 @@ Lista de Bandas            |  Listado de Premios | Crear Premio
 ![Image](https://user-images.githubusercontent.com/78032463/200224226-332cc0fb-1326-4129-80e0-c76d86105205.png)  | ![Image](https://user-images.githubusercontent.com/78032463/200224288-7e79f571-7e93-4226-8c75-8c2eaf20b4ed.png) | ![Image](https://user-images.githubusercontent.com/78032463/200224367-8d5620c4-1b66-402f-8c1e-15532fb34515.png)
 
 
-## Descargar APK
+## Descargar APK Release 1
 
 Versión del primer release compatible con SDK desde la versión 21 y la SDK target es la versión 32
 
@@ -67,4 +67,12 @@ Detalle de Álbum            |  Detalle de Artista | Crear Álbum
 ![Image](https://user-images.githubusercontent.com/78032463/202952719-e386f6fe-55ec-4058-9c6a-72a7fce4c8cd.png)  | ![Image](https://user-images.githubusercontent.com/78032463/202952758-3c5e2f64-55d2-475d-b49f-557d2275ea4c.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952785-931423c4-84e3-48d0-acfb-e96c218be94f.png)
 Detalle de Bandas |
 ![Image](https://user-images.githubusercontent.com/78032463/202952970-e8d4eccf-5148-44d7-a5f1-19e2c9b09c00.png)  | 
+
+## Descargar APK Release 2
+
+Versión del primer release compatible con SDK desde la versión 21 y la SDK target es la versión 32
+
+[APK](
+https://uniandes-my.sharepoint.com/:u:/g/personal/ld_castellanos_uniandes_edu_co/EYQ9SqRDvsxJjHF3gTd5cIEB4KbZCUPep51pHyHwR1vM_w?e=6wFbIk)
+
 
