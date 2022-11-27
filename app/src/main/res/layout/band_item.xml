@@ -6,22 +6,28 @@
         <variable name="band" type="com.example.vinilos.models.Band"/>
     </data>
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
-        app:cardBackgroundColor="@android:color/white"
-        android:layout_margin="10dp"
-        app:cardElevation="8dp">
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="10dp"
+            app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="fitXY"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
                 android:id="@+id/band_image"
                 />
             <TextView
@@ -31,8 +37,8 @@
                 android:textColor="@android:color/black"
                 android:textSize="21dp"
                 android:text="@{band.name}"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

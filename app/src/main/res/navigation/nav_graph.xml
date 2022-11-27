@@ -85,7 +85,7 @@
     <fragment
         android:id="@+id/musicianDetailFragment"
         android:name="com.example.vinilos.ui.MusicianDetailFragment"
-        android:label="MusicianDetailFragment"
+        android:label="Músico"
         tools:layout="@layout/musician_detail_fragment"
         >
         <argument
@@ -95,7 +95,7 @@
     <fragment
         android:id="@+id/bandDetailFragment"
         android:name="com.example.vinilos.ui.BandDetailFragment"
-        android:label="BandDetailFragment"
+        android:label="Banda"
         tools:layout="@layout/band_detail_fragment">
         <argument
             android:name="bandId"
@@ -104,7 +104,7 @@
     <fragment
         android:id="@+id/albumDetailFragment"
         android:name="com.example.vinilos.ui.AlbumDetailFragment"
-        android:label="Detalle del Album"
+        android:label="Album"
         tools:layout="@layout/album_detail_fragment">
         <argument
             android:name="albumId"

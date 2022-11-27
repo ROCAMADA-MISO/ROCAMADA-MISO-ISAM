@@ -4,6 +4,18 @@
     <option name="androidTestResultsTableState">
       <map>
         <entry key="-804619895">
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Nexus_5_API_26" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="-804619895">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
