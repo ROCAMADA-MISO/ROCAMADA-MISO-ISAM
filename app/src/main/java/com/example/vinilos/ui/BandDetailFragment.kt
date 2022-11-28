@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.vinilos.databinding.BandDetailFragmentBinding
 import com.example.vinilos.viewmodels.BandDetailViewModel
+import com.example.vinyls_jetpack_application.ui.adapters.AlbumsAdapter
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -20,6 +21,7 @@ class BandDetailFragment : Fragment() {
     private var _binding: BandDetailFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: BandDetailViewModel
+    private var viewModelAdapter: AlbumsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +33,7 @@ class BandDetailFragment : Fragment() {
         _binding = BandDetailFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = ViewModelProvider(this, BandDetailViewModel.Factory(application, args.bandId)).get(BandDetailViewModel::class.java)
+        viewModelAdapter = AlbumsAdapter()
         return binding.root
     }
 
