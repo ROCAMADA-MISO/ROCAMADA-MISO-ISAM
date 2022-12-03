@@ -57,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.band.description}"
                 android:textAlignment="textStart"
+                android:maxLines="4"
                 tools:text="Es un cantante, compositor, músico, actor, abogado, político y activista panameño. Ha desarrollado gran parte de su carrera artística en la ciudad de Nueva York."/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/artistalbumsRv"

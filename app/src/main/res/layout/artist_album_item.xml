@@ -23,7 +23,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="5dp"
             android:layout_margin="10dp"
-            app:cardElevation="8dp">
+            app:cardElevation="8dp"
+            android:id="@+id/album_item">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                     android:layout_width="180dp"
                     android:layout_height="70dp"/>
                 <TextView
-                    android:id="@+id/textView61"
+                    android:id="@+id/album_name_text"
                     android:layout_width="match_parent"
                     android:layout_height="17dp"
                     android:text="@{albums.name}"

@@ -4,50 +4,45 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vinilos.databinding.BandDetailFragmentBinding
+import com.example.vinilos.R
+import com.example.vinilos.databinding.AlbumsFragmentBinding
+import com.example.vinilos.databinding.AssociateAlbumFragmentBinding
 import com.example.vinilos.models.Albums
-import com.example.vinilos.viewmodels.BandDetailViewModel
-import com.example.vinyls_jetpack_application.ui.adapters.ArtistAlbumsAdapter
+import com.example.vinilos.viewmodels.AlbumsViewModel
+import com.example.vinyls_jetpack_application.ui.adapters.AssociateAlbumAdapter
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * A simple [Fragment] subclass.
+ * Use the [AssociateAlbumFragment.newInstance] factory method to
+ * create an instance of this fragment.
  */
-class BandDetailFragment : Fragment() {
-    private var _binding: BandDetailFragmentBinding? = null
+class AssociateAlbumFragment : Fragment() {
+    private var _binding: AssociateAlbumFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: BandDetailViewModel
     private lateinit var recyclerView: RecyclerView
-    private var viewModelAdapter: ArtistAlbumsAdapter? = null
+    private lateinit var viewModel: AlbumsViewModel
+    private var viewModelAdapter: AssociateAlbumAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val application = requireNotNull(activity).application
-        val args: BandDetailFragmentArgs by navArgs()
-        _binding = BandDetailFragmentBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = this
-        binding.viewModel = ViewModelProvider(this, BandDetailViewModel.Factory(application, args.bandId)).get(BandDetailViewModel::class.java)
-        binding.associateAlbumButton.setOnClickListener{
-            val action = BandDetailFragmentDirections.actionBandDetailFragmentToAssociateAlbumFragment(args.bandId)
-            binding.root.findNavController().navigate(action)
-        }
-
-        viewModelAdapter = ArtistAlbumsAdapter()
-        return binding.root
+        _binding = AssociateAlbumFragmentBinding.inflate(inflater, container, false)
+        val view = binding.root
+//        _binding!!.albumFormButton?.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_albumFragment_to_createAlbumFragment))
+        viewModelAdapter = AssociateAlbumAdapter()
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.artistalbumsRv
+        recyclerView = binding.albumsRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
     }
@@ -57,8 +52,8 @@ class BandDetailFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        val args: BandDetailFragmentArgs by navArgs()
-        viewModel = ViewModelProvider(this, BandDetailViewModel.Factory(activity.application,args.bandId)).get(BandDetailViewModel::class.java)
+        activity.actionBar?.title = getString(R.string.title_albums)
+        viewModel = ViewModelProvider(this, AlbumsViewModel.Factory(activity.application)).get(AlbumsViewModel::class.java)
         viewModel.albums.observe(viewLifecycleOwner, Observer<List<Albums>> {
             it.apply {
                 viewModelAdapter!!.albums = this
@@ -67,7 +62,6 @@ class BandDetailFragment : Fragment() {
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })
-
     }
     override fun onDestroyView() {
         super.onDestroyView()

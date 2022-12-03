@@ -100,6 +100,9 @@
         <argument
             android:name="bandId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_bandDetailFragment_to_associateAlbumFragment"
+            app:destination="@id/associateAlbumFragment" />
     </fragment>
     <fragment
         android:id="@+id/albumDetailFragment"
@@ -108,6 +111,15 @@
         tools:layout="@layout/album_detail_fragment">
         <argument
             android:name="albumId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/associateAlbumFragment"
+        android:name="com.example.vinilos.ui.AssociateAlbumFragment"
+        android:label="Asociar album"
+        tools:layout="@layout/associate_album_fragment">
+        <argument
+            android:name="bandId"
             app:argType="integer" />
     </fragment>
 </navigation>
