@@ -15,6 +15,7 @@ import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -44,13 +45,13 @@ public class AssociateAlbumToBandTest {
         Thread.sleep(10000);
 
         ViewInteraction associateButton = onView(allOf(withId(R.id.associateAlbumButton)));
-        bandsButton.perform(click());
+        associateButton.perform(click());
         Thread.sleep(10000);
 
-        ViewInteraction albumItem = onView(allOf(withText("Poeta del pueblo")));
-        albumItem.perform(click());
-        ViewInteraction associateAction = onView(allOf(withId(R.id.album_form_button)));
-        associateAction.perform(click());
+        ViewInteraction albumItem = onView(withText("Poeta del pueblo"));
+        albumItem.perform(scrollTo(), click());
+        ViewInteraction associateAction = onView((withId(R.id.album_form_button)));
+        associateAction.perform(scrollTo(), click());
         Thread.sleep(10000);
         onView((withText("Queen"))).check(matches(isDisplayed()));
 
