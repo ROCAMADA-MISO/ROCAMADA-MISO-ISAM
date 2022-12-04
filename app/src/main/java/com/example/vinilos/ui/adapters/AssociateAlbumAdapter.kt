@@ -53,6 +53,7 @@ class AssociateAlbumAdapter : RecyclerView.Adapter<AssociateAlbumAdapter.Associa
         holder.bind(albums[position])
         holder.viewDataBinding.root.setOnClickListener {
             selectedItemPos = position
+            selectedItemId = albums[position].id
             if(lastItemSelectedPos == -1)
                 lastItemSelectedPos = selectedItemPos
             else {

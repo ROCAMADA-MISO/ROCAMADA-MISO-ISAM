@@ -1,6 +1,7 @@
 package com.example.vinilos.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
-import com.example.vinilos.databinding.AlbumsFragmentBinding
 import com.example.vinilos.databinding.AssociateAlbumFragmentBinding
 import com.example.vinilos.models.Albums
 import com.example.vinilos.viewmodels.AlbumsViewModel
@@ -36,8 +35,11 @@ class AssociateAlbumFragment : Fragment() {
     ): View? {
         _binding = AssociateAlbumFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
-//        _binding!!.albumFormButton?.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_albumFragment_to_createAlbumFragment))
+
         viewModelAdapter = AssociateAlbumAdapter()
+        binding.albumFormButton.setOnClickListener {
+            Log.d("albumFormButton", viewModelAdapter!!.selectedItemId.toString())
+        }
         return view
     }
 
