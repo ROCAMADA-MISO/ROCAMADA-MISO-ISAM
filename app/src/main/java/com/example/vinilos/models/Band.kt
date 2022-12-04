@@ -6,4 +6,5 @@ data class Band (
     val image: String,
     val description: String,
     val creationDate: String,
+    val albums: List<Albums>
 )

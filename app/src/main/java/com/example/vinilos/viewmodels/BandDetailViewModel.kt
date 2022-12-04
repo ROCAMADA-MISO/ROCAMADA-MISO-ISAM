@@ -2,6 +2,7 @@ package com.example.vinilos.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.vinilos.models.Albums
 import com.example.vinilos.models.Band
 import com.example.vinilos.repositories.BandDetailRepository
 import kotlinx.coroutines.Dispatchers
@@ -12,6 +13,11 @@ class BandDetailViewModel(application: Application, bandId: Int) :  AndroidViewM
 
     private val bandDetailRepository = BandDetailRepository(application)
     private val _band = MutableLiveData<Band>()
+
+    private val _albums = MutableLiveData<List<Albums>>()
+
+    val albums: LiveData<List<Albums>>
+        get() = _albums
 
     val band: LiveData<Band>
         get() = _band
@@ -38,6 +44,7 @@ class BandDetailViewModel(application: Application, bandId: Int) :  AndroidViewM
                 withContext(Dispatchers.IO){
                     var data = bandDetailRepository.refreshData(id)
                     _band.postValue(data)
+                    _albums.postValue(data.albums)
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)

@@ -15,10 +15,11 @@ import org.json.JSONObject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
+import kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.DeclaredMemberIndex.Empty
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
-        const val BASE_URL= "https://back-vinilos-g6.herokuapp.com/"
+        const val BASE_URL= " https://back-vinilos-g6.fly.dev/"
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -54,12 +55,14 @@ class NetworkServiceAdapter constructor(context: Context) {
                 val list = mutableListOf<Band>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
-                    list.add(i, Band(
+                    list.add(i,
+                        Band(
                         id = item.getInt("id"),
                         name = item.getString("name"),
                         image = item.getString("image"),
                         description = item.getString("description"),
-                        creationDate = item.getString("creationDate"))
+                        creationDate = item.getString("creationDate"),
+                        albums = emptyList())
                     )
                 }
                 onComplete(list)
@@ -118,12 +121,28 @@ class NetworkServiceAdapter constructor(context: Context) {
                 Log.d("RESPONSE", resp.toString())
                 var item:JSONObject? = null
                 item = resp;
-                cont.resume(Band(
-                    id = item.getInt("id"),
-                    name = item.getString("name"),
-                    image = item.getString("image"),
-                    description = item.getString("description"),
-                    creationDate = item.getString("creationDate"))
+                val albumList = mutableListOf<Albums>()
+                for (i in 0 until item.getJSONArray("albums").length()) {
+                    val album = item.getJSONArray("albums").getJSONObject(i)
+                    Log.d("ALBUM", album.toString())
+                    albumList.add(i, Albums(
+                        id = album.getInt("id"),
+                        name = album.getString("name"),
+                        cover = album.getString("cover"),
+                        releaseDate = null,
+                        description = album.getString("description"),
+                        "",
+                        ""))
+                }
+                cont.resume(
+                    Band(
+                        id = item.getInt("id"),
+                        name = item.getString("name"),
+                        image = item.getString("image"),
+                        description = item.getString("description"),
+                        creationDate = item.getString("creationDate"),
+                        albums= albumList
+                    )
                 )
             },
             Response.ErrorListener {
@@ -141,7 +160,12 @@ class NetworkServiceAdapter constructor(context: Context) {
                     val item = resp.getJSONObject(i)
                     list.add(i, Albums(
                         id = item.getInt("id"),
-                        name = item.getString("name"), cover = item.getString("cover"), releaseDate = null, description = item.getString("description"), "", ""))
+                        name = item.getString("name"),
+                        cover = item.getString("cover"),
+                        releaseDate = null,
+                        description = item.getString("description"),
+                        "",
+                        ""))
                 }
                 onComplete(list)
             },
@@ -196,10 +220,24 @@ class NetworkServiceAdapter constructor(context: Context) {
                 onError(it)
             }))
     }
+
+    fun associateBandAlbum(bandId: String, albumId:String, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(postRequest("bands/$bandId/albums/$albumId",
+            body= null,
+            Response.Listener<JSONObject> { response ->
+
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }
-    private fun postRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
+    private fun postRequest(path: String, body: JSONObject?,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
         return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
     }
     private fun putRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{

@@ -1,5 +1,6 @@
 package com.example.vinyls_jetpack_application.ui.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -20,41 +21,55 @@ import com.example.vinilos.ui.AlbumsFragmentDirections
  * Glide library to load an image by URL into an [ImageView]
  */
 
-class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumsViewHolder>() {
+class AssociateAlbumAdapter : RecyclerView.Adapter<AssociateAlbumAdapter.AssociateAlbumsViewHolder>() {
 
     var albums :List<Albums> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumsViewHolder {
+
+    var selectedItemPos = -1
+    var selectedItemId:Int=0
+    var lastItemSelectedPos = -1
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssociateAlbumsViewHolder {
         val withDataBinding: AlbumsItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            AlbumsViewHolder.LAYOUT,
+            AssociateAlbumsViewHolder.LAYOUT,
             parent,
             false)
-        return AlbumsViewHolder(withDataBinding)
+        return AssociateAlbumsViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: AlbumsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AssociateAlbumsViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.albums = albums[position]
         }
+        if(position == selectedItemPos)
+            holder.selectedBg()
+        else
+            holder.defaultBg()
         holder.bind(albums[position])
         holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumsFragmentDirections.actionAlbumFragmentToCreateAlbumFragment()
-            val action2 = AlbumsFragmentDirections.actionAlbumFragmentToAlbumDetailFragment(albums[position].id)
-            // Navigate using that action
-            holder.viewDataBinding.root.findNavController().navigate(action)
-            holder.viewDataBinding.root.findNavController().navigate(action2)
+            selectedItemPos = position
+            selectedItemId = albums[position].id
+            if(lastItemSelectedPos == -1)
+                lastItemSelectedPos = selectedItemPos
+            else {
+                notifyItemChanged(lastItemSelectedPos)
+                lastItemSelectedPos = selectedItemPos
+            }
+            notifyItemChanged(selectedItemPos)
         }
     }
+
 
     override fun getItemCount(): Int {
         return albums.size
     }
 
-    class AlbumsViewHolder(val viewDataBinding: AlbumsItemBinding) :
+    class AssociateAlbumsViewHolder(val viewDataBinding: AlbumsItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
@@ -69,6 +84,14 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumsViewHolder>() {
 
                         .error(R.drawable.ic_broken_image))
                 .into(viewDataBinding.albumsCover)
+        }
+
+        fun defaultBg() {
+            viewDataBinding.albumItemLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
+        }
+
+        fun selectedBg() {
+            viewDataBinding.albumItemLayout.setBackgroundColor(Color.parseColor("#EEE4C8"))
         }
     }
 }
