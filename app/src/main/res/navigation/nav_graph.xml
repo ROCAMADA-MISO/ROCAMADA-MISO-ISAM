@@ -121,5 +121,8 @@
         <argument
             android:name="bandId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_associateAlbumFragment_to_bandDetailFragment"
+            app:destination="@id/bandDetailFragment" />
     </fragment>
 </navigation>

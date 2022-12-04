@@ -220,10 +220,24 @@ class NetworkServiceAdapter constructor(context: Context) {
                 onError(it)
             }))
     }
+
+    fun associateBandAlbum(bandId: String, albumId:String, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(postRequest("bands/$bandId/albums/$albumId",
+            body= null,
+            Response.Listener<JSONObject> { response ->
+
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }
-    private fun postRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
+    private fun postRequest(path: String, body: JSONObject?,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
         return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
     }
     private fun putRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{

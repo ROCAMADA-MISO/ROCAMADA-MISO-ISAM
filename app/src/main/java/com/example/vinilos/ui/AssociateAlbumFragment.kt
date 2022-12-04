@@ -9,6 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
@@ -35,10 +38,12 @@ class AssociateAlbumFragment : Fragment() {
     ): View? {
         _binding = AssociateAlbumFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
-
+        val args: AssociateAlbumFragmentArgs by navArgs()
         viewModelAdapter = AssociateAlbumAdapter()
         binding.albumFormButton.setOnClickListener {
-            Log.d("albumFormButton", viewModelAdapter!!.selectedItemId.toString())
+            val res = viewModel.associateAlbumBand(args.bandId.toString(),viewModelAdapter!!.selectedItemId.toString())
+            val action = AssociateAlbumFragmentDirections.actionAssociateAlbumFragmentToBandDetailFragment(args.bandId)
+            binding.root.findNavController().navigate(action)
         }
         return view
     }
