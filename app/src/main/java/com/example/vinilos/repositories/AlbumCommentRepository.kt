@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import com.android.volley.VolleyError
 import com.example.vinilos.models.Album
-import com.example.vinilos.models.Albums
+import com.example.vinilos.models.Collector
 import com.example.vinilos.network.NetworkServiceAdapter
 import org.json.JSONObject
 
@@ -17,16 +17,17 @@ class AlbumCommentRepository  (val application: Application){
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    fun createCommentAlbum(name:String, cover: String, releaseDate:String, description:String, genre:String, recordLabel:String) {
-
-        val n:Int = 1
-        val newAlbum= JSONObject()
-        newAlbum.put("description",description)
-        newAlbum.put("rating",genre)
-        newAlbum.put("recordLabel",recordLabel)
+    fun createCommentAlbum( description:String, rating:Int, collector:Collector) {
 
 
-        return NetworkServiceAdapter.getInstance(application).postCommentAlbum(newAlbum, n,
+        val newComment= JSONObject()
+        newComment.put("description",description)
+        newComment.put("rating",rating)
+        newComment.put("collector",collector)
+
+
+
+        return NetworkServiceAdapter.getInstance(application).postCommentAlbum(newComment,collector.id,
             fun (jsonObject: JSONObject){
                 Log.v("TAG", "ONCOMPLETE");
                 return;

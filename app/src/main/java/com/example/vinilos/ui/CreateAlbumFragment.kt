@@ -14,19 +14,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.AlbumCreateFragmentBinding
-import com.example.vinilos.databinding.PrizeCreateFragmentBinding
-import com.example.vinilos.ui.adapters.PrizesAdapter
 import com.example.vinilos.viewmodels.CreateAlbumViewModel
-import com.example.vinilos.viewmodels.CreatePrizeViewModel
 import com.example.vinyls_jetpack_application.ui.adapters.AlbumsAdapter
 
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CreateAlbumFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class CreateAlbumFragment : Fragment() {
     private var _binding: AlbumCreateFragmentBinding? = null
     private val binding get() = _binding!!

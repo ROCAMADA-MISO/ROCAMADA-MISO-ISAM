@@ -124,7 +124,7 @@
         <argument
             android:name="albumId"
             app:argType="integer"
-            android:defaultValue="1"
+            android:defaultValue="101"
             />
         <action
             android:id="@+id/action_albumCommentFragment_to_albumDetailFragment"

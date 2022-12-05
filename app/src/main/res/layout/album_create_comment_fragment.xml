@@ -10,6 +10,14 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/titleConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.vinilos.ui.CreateAlbumFragment"
+            >
+
         <LinearLayout
             tools:context=".ui.AlbumDetailFragment"
             android:layout_width="match_parent"
@@ -67,5 +75,6 @@
                 android:text="@string/add_comment" />
 
         </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

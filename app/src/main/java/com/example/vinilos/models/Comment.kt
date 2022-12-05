@@ -2,8 +2,11 @@ package com.example.vinilos.models
 
 class Comment (
 val description:String,
-val rating:String,
-val albumId:Int
+val rating:Int,
+val collector: Collector
 )
 
 
+data class Collector (
+    val id: Int
+)

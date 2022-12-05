@@ -1,8 +1,11 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
 import com.example.vinilos.models.Album
+import com.example.vinilos.models.Collector
 import com.example.vinilos.repositories.AlbumCommentRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +33,11 @@ class AlbumCommentViewModel (application: Application, albumId: Int) :  AndroidV
 
     init {
         refreshDataFromNetwork()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    fun createCommentAlbum(description:String, rating:Int, collector: Collector){
+        val resp =  albumCommentRepository.createCommentAlbum(description, rating, collector)
     }
 
 
