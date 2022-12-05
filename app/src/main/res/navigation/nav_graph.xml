@@ -112,6 +112,26 @@
         <argument
             android:name="albumId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_albumDetailFragment_to_albumsFragment"
+            app:destination="@id/albumsFragment" />
+        <action
+            android:id="@+id/action_albumDetailFragment_to_albumCommentFragment"
+            app:destination="@id/albumCommentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumCommentFragment"
+        android:name="com.example.vinilos.ui.CreateCommentAlbumFragment"
+        android:label="Album"
+        tools:layout="@layout/album_create_comment_fragment">
+        <argument
+            android:name="albumId"
+            app:argType="integer"
+            android:defaultValue="101"
+            />
+        <action
+            android:id="@+id/action_albumCommentFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/associateAlbumFragment"

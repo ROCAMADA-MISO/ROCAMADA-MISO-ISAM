@@ -1,8 +1,8 @@
-package com.example.vinyls_jetpack_application.ui.adapters
+package com.example.vinilos.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
@@ -11,39 +11,41 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
-import com.example.vinilos.databinding.AlbumsItemBinding
+import com.example.vinilos.databinding.AlbumCreateCommentFragmentBinding
 import com.example.vinilos.models.Albums
 import com.example.vinilos.ui.AlbumDetailFragmentDirections
-import com.example.vinilos.ui.AlbumsFragmentDirections
+import com.example.vinyls_jetpack_application.ui.adapters.AlbumsAdapter
 
-
-
-class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumsViewHolder>() {
+class AlbumsCommentAdapter : RecyclerView.Adapter<AlbumsCommentAdapter.AlbumsViewHolder>() {
 
     var albums :List<Albums> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumsViewHolder {
-        val withDataBinding: AlbumsItemBinding = DataBindingUtil.inflate(
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): AlbumsCommentAdapter.AlbumsViewHolder {
+        val withDataBinding: AlbumCreateCommentFragmentBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            AlbumsViewHolder.LAYOUT,
+            AlbumsCommentAdapter.AlbumsViewHolder.LAYOUT,
             parent,
             false)
-        return AlbumsViewHolder(withDataBinding)
+        return AlbumsCommentAdapter.AlbumsViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: AlbumsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AlbumsCommentAdapter.AlbumsViewHolder, position: Int) {
+        Log.d("Entro","Entro a metodo adapter")
         holder.viewDataBinding.also {
             it.albums = albums[position]
         }
         holder.bind(albums[position])
         holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumsFragmentDirections.actionAlbumFragmentToAlbumDetailFragment(albums[position].id)
+            val action = AlbumDetailFragmentDirections.actionAlbumDetailFragmentToAlbumCommentFragment(albums[position].id)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
-
         }
     }
 
@@ -51,7 +53,7 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumsViewHolder>() {
         return albums.size
     }
 
-    class AlbumsViewHolder(val viewDataBinding: AlbumsItemBinding) :
+    class AlbumsViewHolder(val viewDataBinding: AlbumCreateCommentFragmentBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes

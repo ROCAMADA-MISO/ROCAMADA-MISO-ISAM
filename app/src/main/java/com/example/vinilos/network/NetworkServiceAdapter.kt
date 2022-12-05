@@ -19,7 +19,9 @@ import kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.DeclaredMembe
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
+
         const val BASE_URL= " https://back-vinilos-g6.fly.dev/"
+
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -220,6 +222,19 @@ class NetworkServiceAdapter constructor(context: Context) {
                 onError(it)
             }))
     }
+
+    fun postCommentAlbum(body: JSONObject, collectorId:Int, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
+        requestQueue.add(postRequest("albums/$collectorId/comments",
+            body,
+            Response.Listener<JSONObject> { response ->
+
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
 
     fun associateBandAlbum(bandId: String, albumId:String, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
         requestQueue.add(postRequest("bands/$bandId/albums/$albumId",

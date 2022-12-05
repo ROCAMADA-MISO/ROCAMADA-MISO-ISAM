@@ -7,17 +7,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.vinilos.viewmodels.AlbumDetailViewModel
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.example.vinilos.R
 import com.example.vinilos.databinding.AlbumDetailFragmentBinding
-
+import com.example.vinilos.ui.adapters.AlbumsCommentAdapter
+import com.example.vinyls_jetpack_application.ui.adapters.AlbumsAdapter
 
 
 class AlbumDetailFragment : Fragment() {
     private var _binding: AlbumDetailFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: AlbumDetailViewModel
+    private var viewModelAdapter: AlbumsCommentAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +34,8 @@ class AlbumDetailFragment : Fragment() {
         _binding = AlbumDetailFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = ViewModelProvider(this, AlbumDetailViewModel.Factory(application, args.albumId)).get(AlbumDetailViewModel::class.java)
+        _binding!!.albumAddcommentFormButton?.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_albumDetailFragment_to_albumCommentFragment))
+
         return binding.root
     }
 

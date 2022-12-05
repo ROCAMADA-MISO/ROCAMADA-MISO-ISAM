@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.databinding.BandDetailFragmentBinding
 import com.example.vinilos.models.Albums
 import com.example.vinilos.viewmodels.BandDetailViewModel
+import com.example.vinyls_jetpack_application.ui.adapters.AlbumsAdapter
 import com.example.vinyls_jetpack_application.ui.adapters.ArtistAlbumsAdapter
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -25,8 +27,10 @@ class BandDetailFragment : Fragment() {
     private var _binding: BandDetailFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: BandDetailViewModel
+
     private lateinit var recyclerView: RecyclerView
     private var viewModelAdapter: ArtistAlbumsAdapter? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,12 +41,14 @@ class BandDetailFragment : Fragment() {
         _binding = BandDetailFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = ViewModelProvider(this, BandDetailViewModel.Factory(application, args.bandId)).get(BandDetailViewModel::class.java)
+
         binding.associateAlbumButton.setOnClickListener{
             val action = BandDetailFragmentDirections.actionBandDetailFragmentToAssociateAlbumFragment(args.bandId)
             binding.root.findNavController().navigate(action)
         }
 
         viewModelAdapter = ArtistAlbumsAdapter()
+
         return binding.root
     }
 

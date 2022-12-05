@@ -42,7 +42,7 @@
     <string name="title_albums">Álbumes</string>
     <string name="title_bands">Bandas</string>
 
-<!--Crear Album-->
+    <!--Crear Album-->
     <string name="name_album">Nombre</string>
     <string name="cover_album">Cover</string>
     <string name="releaseDate_album">Fecha Publicacion</string>
@@ -50,6 +50,8 @@
     <string name="genre_album">Genre</string>
     <string name="recordLabel_album">Etiqueta de Registro</string>
     <string name="create_album">Crear album</string>
+
+    <string name="add_comment">Adicionar Comentario</string>
 
     <string name="post_text">Resultado:</string>
 </resources>
