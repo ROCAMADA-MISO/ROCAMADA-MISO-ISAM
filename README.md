@@ -71,3 +71,23 @@ Versión del primer release compatible con SDK desde la versión 21 y la SDK tar
 Versión del primer release compatible con SDK desde la versión 21 y la SDK target es la versión 32
 
 [APK](https://uniandes-my.sharepoint.com/:u:/g/personal/ld_castellanos_uniandes_edu_co/EYQ9SqRDvsxJjHF3gTd5cIEB4KbZCUPep51pHyHwR1vM_w?e=6wFbIk)
+
+## Funcionalidades habilitadas en el **tercer release**
+
+- Comentar un álbum
+- Agregar un álbum a un artista
+
+## Interfaces
+
+|                                                      Home                                                       |                                               Listado de álbumes                                                |                                               Listado de Músicos                                                |
+| :-------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------: |
+| ![Image](https://user-images.githubusercontent.com/78032463/202951966-cd1bc123-6380-4670-94da-1cd8f6fc4c5f.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952049-cc14601c-5656-40b2-905d-e4786540e409.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952131-e269504f-853c-4513-9989-21d00ed7a80a.png) |
+|                                                 Lista de Bandas                                                 |                                               Listado de Premios                                                |                                                  Crear Premio                                                   |
+| ![Image](https://user-images.githubusercontent.com/78032463/202952275-544b73dc-7f43-433b-82b8-c733ba92fcce.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952349-18b2b9a3-a1b6-4448-b1e3-9f66c48c8235.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952428-86eb15c1-c85c-4f13-951f-ae5c0bd8b06c.png) |
+|                                                Detalle de Álbum                                                 |                                               Detalle de Artista                                                |                                                   Crear Álbum                                                   |
+| ![Image](https://user-images.githubusercontent.com/78032463/202952719-e386f6fe-55ec-4058-9c6a-72a7fce4c8cd.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952758-3c5e2f64-55d2-475d-b49f-557d2275ea4c.png) | ![Image](https://user-images.githubusercontent.com/78032463/202952785-931423c4-84e3-48d0-acfb-e96c218be94f.png) |
+|                                                Detalle de Bandas                                                | Comentar un álbum| Asociar álbum a artista|
+| ![Image](https://user-images.githubusercontent.com/78032463/202952970-e8d4eccf-5148-44d7-a5f1-19e2c9b09c00.png) |![Image](https://user-images.githubusercontent.com/78032463/205542021-07bc1a3b-41d7-42d9-8ae3-218d2ecb5853.png)|![Image](https://user-images.githubusercontent.com/78032463/205541864-3f500082-31a0-4b40-8eff-59217c89878a.png)
+
+
+
