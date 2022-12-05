@@ -90,4 +90,8 @@ Versión del primer release compatible con SDK desde la versión 21 y la SDK tar
 | ![Image](https://user-images.githubusercontent.com/78032463/202952970-e8d4eccf-5148-44d7-a5f1-19e2c9b09c00.png) |![Image](https://user-images.githubusercontent.com/78032463/205542021-07bc1a3b-41d7-42d9-8ae3-218d2ecb5853.png)|![Image](https://user-images.githubusercontent.com/78032463/205541864-3f500082-31a0-4b40-8eff-59217c89878a.png)
 
 
+## Descargar APK Release 3
 
+Versión del primer release compatible con SDK desde la versión 21 y la SDK target es la versión 32
+
+[APK](https://uniandes-my.sharepoint.com/:u:/g/personal/w_parrav_uniandes_edu_co/EWRjimxQMmJKpNRaLjYAy5cB8WG8KPS_HxDrofouAbMf6A?e=YiBDp5)
