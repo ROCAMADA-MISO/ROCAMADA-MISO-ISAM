@@ -1,26 +1,23 @@
 package com.example.vinilos.viewmodels
 
 import android.app.Application
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
-import com.example.vinilos.models.Albums
-import com.example.vinilos.models.Band
-import com.example.vinilos.repositories.BandDetailRepository
+import com.example.vinilos.models.Album
+import com.example.vinilos.models.Collector
+import com.example.vinilos.repositories.AlbumCommentRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class BandDetailViewModel(application: Application, bandId: Int) :  AndroidViewModel(application) {
+class AlbumCommentViewModel (application: Application, albumId: Int) :  AndroidViewModel(application){
 
-    private val bandDetailRepository = BandDetailRepository(application)
-    private val _band = MutableLiveData<Band>()
+    private val albumCommentRepository = AlbumCommentRepository(application)
+    private val _album = MutableLiveData<Album>()
 
-    private val _albums = MutableLiveData<List<Albums>>()
-
-    val albums: LiveData<List<Albums>>
-        get() = _albums
-
-    val band: LiveData<Band>
-        get() = _band
+    val album: LiveData<Album>
+        get() = _album
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -32,19 +29,24 @@ class BandDetailViewModel(application: Application, bandId: Int) :  AndroidViewM
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
-    val id:Int = bandId
+    val id:Int = albumId
 
     init {
         refreshDataFromNetwork()
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    fun createCommentAlbum(description:String, rating:Int, collector: Collector){
+        val resp =  albumCommentRepository.createCommentAlbum(description, rating, collector)
+    }
+
+
     private fun refreshDataFromNetwork() {
         try {
             viewModelScope.launch (Dispatchers.Default){
                 withContext(Dispatchers.IO){
-                    var data = bandDetailRepository.refreshData(id)
-                    _band.postValue(data)
-                    _albums.postValue(data.albums)
+                    var data = albumCommentRepository.refreshData(id)
+                    _album.postValue(data)
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)
@@ -59,14 +61,14 @@ class BandDetailViewModel(application: Application, bandId: Int) :  AndroidViewM
         _isNetworkErrorShown.value = true
     }
 
-    class Factory(val app: Application, val bandId: Int) : ViewModelProvider.Factory {
+    class Factory(val app: Application, val albumId: Int) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(BandDetailViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(AlbumCommentViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return BandDetailViewModel(app, bandId) as T
+                return AlbumCommentViewModel(app, albumId) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
-}
 
+}

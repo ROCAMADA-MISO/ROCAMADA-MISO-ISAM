@@ -4,7 +4,9 @@ import android.app.Application
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.navigation.Navigation
 import com.android.volley.VolleyError
+import com.example.vinilos.R
 import com.example.vinilos.models.Albums
 import com.example.vinilos.network.NetworkServiceAdapter
 import org.json.JSONObject
@@ -42,4 +44,18 @@ class AlbumsRepository (val application: Application) {
             }
         )
     }
+
+    fun associateAlbumToBand(bandId:String, albumId: String) {
+        return NetworkServiceAdapter.getInstance(application).associateBandAlbum(bandId,albumId,
+            fun (jsonObject: JSONObject){
+                Log.v("TAG", "ONCOMPLETE");
+                return;
+        }, fun (error: VolleyError){
+            Log.v("TAG", "ONERROR");
+            return;
+        })
+    }
+
+
+
 }

@@ -14,6 +14,10 @@ class AlbumsViewModel(application: Application) :  AndroidViewModel(application)
     val albums: LiveData<List<Albums>>
         get() = _albums
 
+    fun associateAlbumBand(bandId: String, albumId: String) {
+        return albumsRepository.associateAlbumToBand(bandId, albumId)
+    }
+
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
     val eventNetworkError: LiveData<Boolean>
