@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Vinilos</string>
     <string name="albums">Albums</string>
+    <string name="associate_album">Asociar album</string>
     <string name="all_albums">Todos los Albums</string>
+    <string name="select_album">Selecciona un álbum</string>
     <string name="musicians">Músicos</string>
     <string name="bands">Bandas</string>
     <string name="prizes">Premios</string>
